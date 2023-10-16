@@ -1,1 +1,19 @@
 /* Insert Styles Here! */
+.bottlecap-button {
+  background: transparent;
+  padding: 0;
+  color: white;
+  line-height: normal;
+  border: 0;
+  align-self: center;
+}
+
+.bottlecap-button > i {
+  margin-right: 0;
+}
+
+.bottlecap-button:hover,
+.bottlecap-button:focus {
+  box-shadow: none;
+  text-shadow: 0 0 5px red;
+}
