@@ -1,7 +1,7 @@
 /* global Hooks game */
 
 import BottleCap from "./modules/bottlecap.js";
-import BottleCapList from "./modules/bottleCapList.js";
+import BottleCapList from "./modules/bottlecap-list.js";
 
 Hooks.once("init", () => {
   game.bottlecap = BottleCap;
@@ -19,7 +19,7 @@ Hooks.on("renderPlayerList", (playerList) => {
     // Do nothing
   }
 
-  const button = `<button type='button' class='flexrow flex0 bottlecap-button'>${bottleCapNumber}<img src="modules/bottlecap/assets/bottlecap-draft2.svg"></button>`;
+  const button = `<button type='button' class='flexrow flex1 bottlecap-button'>${bottleCapNumber}<img src="modules/bottlecap/assets/bottlecap-draft-2.svg"></button>`;
   playersHeader.addClass("flexrow");
   playersHeader.append(button);
 

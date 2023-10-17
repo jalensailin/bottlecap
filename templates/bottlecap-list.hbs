@@ -1,0 +1,21 @@
+<form class="bottlecap-form">
+  <ol class="bottlecap-list">
+    <li class="bottlecap-list-header flexrow">
+      <div class="bottlecap-thumb">
+        <a class="bottlecap-create-cap"><i class="fas fa-plus"></i></a>
+      </div>
+      <div class="bottlecap-name">Name</div>
+      <div class="bottlecap-delete-cap">Delete</div>
+    </li>
+    {{#each bottleCapList as |cap key|}}
+    <li class="bottlecap-list-item flexrow">
+      <img class="bottlecap-thumb" src="{{cap.img}}">
+      <div class="bottlecap-name">
+        {{cap.name}}
+      </div>
+      <a class="bottlecap-delete-cap" data-cap-id="{{cap.id}}"><i class="fas fa-trash"></i></a>
+    </li>
+    {{/each}}
+
+  </ol>
+</form>

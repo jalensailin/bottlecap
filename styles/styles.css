@@ -1,4 +1,4 @@
-/* Insert Styles Here! */
+/* Canvas Button */
 .bottlecap-button {
   background: transparent;
   padding: 0;
@@ -12,8 +12,86 @@
   margin-right: 0;
 }
 
+.bottlecap-button > img {
+  height: 24px;
+  width: 24px;
+  border: 0;
+  max-width: none;
+}
+
 .bottlecap-button:hover,
 .bottlecap-button:focus {
   box-shadow: none;
   text-shadow: 0 0 5px red;
+}
+
+/* Bottle Cap List */
+/* Borrowed from SmallTime */
+#bottlecap-app .window-content {
+  border-radius: 5px;
+  padding: 0;
+  background: none;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: none;
+  border: none;
+  background-attachment: unset;
+}
+
+.bottlecap-list {
+  padding: 0;
+  border-radius: 0.25rem;
+}
+
+.bottlecap-list-header {
+  align-items: center;
+  background-color: #191a1b;
+  color: rgba(255, 255, 255, 0.877);
+  padding: 0.3rem 0 0.3rem 0.3rem;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.bottlecap-list-item {
+  align-items: center;
+  background-color: #121d2b;
+  color: rgba(255, 255, 255, 0.877);
+  padding: 0.3rem 0 0.3rem 0.3rem;
+}
+
+.bottlecap-list-item:nth-child(even) {
+  background-color: #303d4e;
+}
+
+.bottlecap-list-item:last-child {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.bottlecap-list-item > img {
+  height: 36px;
+  width: 36px;
+}
+
+.bottlecap-thumb {
+  flex: 0 0 36px;
+}
+
+.bottlecap-thumb:has(.bottlecap-create-cap) {
+  text-align: center;
+}
+
+.bottlecap-name {
+  flex: 3;
+  padding: 0 0 0 0.3rem;
+}
+
+.bottlecap-delete-cap {
+  flex: 1;
+  padding: 0 0.3rem 0 0;
+  text-align: center;
+}
+.bottlecap-delete-cap > i {
+  color: rgb(146, 37, 37);
 }
