@@ -2,13 +2,11 @@
   <ol class="bottlecap-settings-list">
     <li class="flexrow bottlecap-settings-item">
       <div class="bottlecap-settings-label">{{localize "BC.config.user"}}: </div>
-      {{#select user}}
-        <select class="bottlecap-select-user" name="user">
-          {{#each userData as |user|}}
-            <option value="{{user.id}}">{{user.name}}</option>
-          {{/each}}
-        </select>
-      {{/select}}
+      <select class="bottlecap-select-user" name="user">
+        {{#each userData as |user|}}
+          <option value="{{user.id}}">{{user.name}}</option>
+        {{/each}}
+      </select>
     </li>
     <li class="flexrow bottlecap-settings-item">
       <div class="bottlecap-settings-label">{{localize "BC.config.name"}}: </div>
@@ -27,6 +25,6 @@
     </li>
   </ol>
   <button class="bottlecap-create-cap">
-    {{localize "BC.config.giveBottleCap" user=currentUserName}}
+    {{localize "BC.config.giveBottleCap"}}
   </button>
 </form>

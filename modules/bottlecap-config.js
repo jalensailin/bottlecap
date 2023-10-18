@@ -24,20 +24,10 @@ export default class BottleCapConfig extends FormApplication {
       name: u.name,
       id: u.id,
     }));
-    const currentUserName = userData[0].name;
     return {
       ...foundryData,
       userData,
-      currentUserName,
     };
-  }
-
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    html.on("change", ".bottlecap-select-user", () => {
-      // this.render(true);
-    });
   }
 
   async _updateObject(event, formData) {
