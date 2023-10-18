@@ -32,7 +32,8 @@
 
 /* Bottle Cap List */
 /* Borrowed from SmallTime */
-#bottlecap-app .window-content {
+#bottlecap-app .window-content,
+#bottlecap-config-form-app .window-content {
   border-radius: 5px;
   padding: 0;
   background: none;
@@ -44,34 +45,73 @@
   background-attachment: unset;
 }
 
-.bottlecap-list {
+.bottlecap-form > ol,
+.bottlecap-config > ol {
+  margin: 0;
+}
+
+.bottlecap-list,
+.bottlecap-settings-list {
   padding: 0;
   border-radius: 0.25rem;
+}
+
+.bottlecap-config button {
+  background-color: #191a1b;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .bottlecap-list-header {
   align-items: center;
   background-color: #191a1b;
-  color: rgba(255, 255, 255, 0.877);
+  color: rgba(255, 255, 255, 0.9);
   padding: 0.3rem 0 0.3rem 0.3rem;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 
-.bottlecap-list-item {
+.bottlecap-list-item,
+.bottlecap-settings-item {
   align-items: center;
   background-color: #121d2b;
-  color: rgba(255, 255, 255, 0.877);
+  color: rgba(255, 255, 255, 0.9);
   padding: 0.3rem 0 0.3rem 0.3rem;
 }
 
-.bottlecap-list-item:nth-child(even) {
+.bottlecap-list-item:nth-child(even),
+.bottlecap-settings-item:nth-child(even) {
   background-color: #303d4e;
 }
 
-.bottlecap-list-item:last-child {
+.bottlecap-list-item:last-child,
+.bottlecap-settings-item:last-child {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
+}
+
+.bottlecap-settings-item:first-child {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.bottlecap-settings-item > input,
+.bottlecap-settings-item > select,
+.bottlecap-settings-item > .bottlecap-filepicker {
+  color: rgba(255, 255, 255, 0.9);
+  flex: 3;
+}
+
+.bottlecap-settings-item > .bottlecap-filepicker > * {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.bottlecap-settings-item > select option {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #303d4e;
+}
+
+.bottlecap-settings-item > input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .bottlecap-list-item > img {

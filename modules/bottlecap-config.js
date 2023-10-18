@@ -20,6 +20,7 @@ export default class BottleCapConfig extends FormApplication {
       template: "modules/bottlecap/templates/bottlecap-config.hbs",
       title: game.i18n.localize("BC.config.title.edit"), // Default mode is edit.
       userId: game.userId,
+      resizable: true,
     };
 
     const mergedOptions = mergeObject(defaults, overrides);
