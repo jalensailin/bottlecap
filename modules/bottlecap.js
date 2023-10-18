@@ -5,13 +5,14 @@ export default class BottleCap {
 
   static FLAG = "bottleCapList";
 
-  static createBottleCap(
-    data = {
-      name: "Bottle Cap!",
-      img: `/icons/commodities/tech/cog-large-steel-white.webp`,
-      spent: false,
-    },
-  ) {
+  constructor(data = {}) {
+    this.name = data.name || `${game.i18n.localize("BC.bottleCap!")}`;
+    this.img = data.img || `/icons/commodities/tech/cog-large-steel-white.webp`;
+    this.spent = false;
+    this.context = "";
+  }
+
+  static createBottleCap(data) {
     const baseObject = {
       ...data,
       id: randomID(),
@@ -24,7 +25,8 @@ export default class BottleCap {
     return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, newBottleCap);
   }
 
-  static updateBottleCap(id, data = {}) {
+  static updateBottleCap(data = {}) {
+    const { id } = data;
     const updatedCap = {
       [id]: data,
     };

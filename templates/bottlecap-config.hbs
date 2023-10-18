@@ -10,12 +10,12 @@
     </li>
     <li class="flexrow bottlecap-settings-item">
       <div class="bottlecap-settings-label">{{localize "BC.config.name"}}: </div>
-      <input type="text" name="name" data-dtype="String" value="{{localize "BC.bottleCap"}}">
+      <input type="text" name="name" data-dtype="String" value="{{name}}">
     </li>
     <li class="flexrow bottlecap-settings-item">
       <div class="bottlecap-settings-label">{{localize "BC.config.icon"}}: </div>
       <div class="flexrow">
-        <input type="text" name="img" value="/icons/commodities/tech/cog-large-steel-white.webp" data-dtype="String" >
+        <input type="text" name="img" value="{{img}}" data-dtype="String" >
         {{filePicker type="image" target="img"}}
       </div>
     </li>
@@ -25,6 +25,10 @@
     </li>
   </ol>
   <button class="bottlecap-create-cap">
-    {{localize "BC.config.giveBottleCap"}}
+    {{#if isCreationDialog}}
+      {{localize "BC.config.button.give"}}
+    {{else}}
+      {{localize "BC.config.button.update"}}
+    {{/if}}
   </button>
 </form>

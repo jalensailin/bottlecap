@@ -1,12 +1,16 @@
 {
   "BC.bottleCap": "Bottle Cap",
+  "BC.bottleCap!": "Bottle Cap!",
   "BC.bottleCapList": "Bottle Cap List",
 
+  "BC.config.button.give": "Give Bottle Cap",
+  "BC.config.button.update": "Update Bottle Cap",
   "BC.config.context": "Context",
   "BC.config.contextPlaceholder": "Great Roleplay",
-  "BC.config.giveBottleCap": "Give Bottle Cap",
   "BC.config.icon": "Icon",
   "BC.config.name": "Name",
+  "BC.config.title.create": "Create Bottle Cap",
+  "BC.config.title.edit": "Edit Bottle Cap",
   "BC.config.user": "User",
 
   "BC.confirmDelete.content": "Are you sure you want to delete this bottle cap?",

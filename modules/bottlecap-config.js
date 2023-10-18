@@ -2,6 +2,15 @@
 import BottleCap from "./bottlecap.js";
 
 export default class BottleCapConfig extends FormApplication {
+  constructor(object, options) {
+    super(object, options);
+    this.isCreationDialog = options.isCreationDialog;
+
+    // Change title if this is a creation dialog.
+    if (this.isCreationDialog)
+      this.options.title = game.i18n.localize("BC.config.title.create");
+  }
+
   static get defaultOptions() {
     const defaults = super.defaultOptions;
 
@@ -9,12 +18,11 @@ export default class BottleCapConfig extends FormApplication {
       height: "auto",
       id: "bottlecap-config-form-app",
       template: "modules/bottlecap/templates/bottlecap-config.hbs",
-      title: game.i18n.localize("BC.bottleCapConfig"),
+      title: game.i18n.localize("BC.config.title.edit"), // Default mode is edit.
       userId: game.userId,
     };
 
     const mergedOptions = mergeObject(defaults, overrides);
-
     return mergedOptions;
   }
 
@@ -24,15 +32,27 @@ export default class BottleCapConfig extends FormApplication {
       name: u.name,
       id: u.id,
     }));
+    const { isCreationDialog } = this; // The .hbs template displays different verbiage for a creation dialog vs. an edit dialog.
     return {
       ...foundryData,
+      ...this.object,
       userData,
+      isCreationDialog,
     };
   }
 
   async _updateObject(event, formData) {
-    await BottleCap.createBottleCap(formData);
-    const windows = Object.values(ui.windows);
-    return windows.find((w) => w.id === "bottlecap-app").render(true);
+    const newData = mergeObject(this.object, formData);
+
+    if (this.isCreationDialog) {
+      await BottleCap.createBottleCap(newData);
+    } else {
+      await BottleCap.updateBottleCap(newData);
+    }
+
+    const bottleCapApp = Object.values(ui.windows).find(
+      (w) => w.id === "bottlecap-app",
+    );
+    return bottleCapApp ? bottleCapApp.render(true) : this.close();
   }
 }

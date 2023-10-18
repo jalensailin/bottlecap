@@ -13,7 +13,10 @@
       <div class="bottlecap-name">
         {{cap.name}}
       </div>
-      <a class="bottlecap-delete-cap" data-cap-id="{{cap.id}}"><i class="fas fa-trash"></i></a>
+      <div class="actions">
+        <a class="bottlecap-edit-cap" data-cap-id="{{cap.id}}"><i class="fas fa-edit"></i></a>&nbsp;
+        <a class="bottlecap-delete-cap" data-cap-id="{{cap.id}}"><i class="fas fa-trash"></i></a>
+      </div>
     </li>
     {{/each}}
 
