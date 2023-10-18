@@ -1,0 +1,31 @@
+/* Canvas Button */
+.bottlecap-button {
+  background: transparent;
+  padding: 0;
+  color: white;
+  line-height: normal;
+  border: 0;
+  align-self: center;
+  display: block;
+  position: relative;
+}
+
+.bottlecap-button .bottlecap-number {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.5rem;
+}
+
+.bottlecap-button > img {
+  height: 24px;
+  width: 24px;
+  border: 0;
+  max-width: none;
+  display: block;
+}
+
+.bottlecap-button:hover,
+.bottlecap-button:focus {
+  box-shadow: none;
+  text-shadow: 0 0 5px red;
+}
