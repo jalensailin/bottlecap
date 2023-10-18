@@ -2,10 +2,10 @@
   <ol class="bottlecap-list">
     <li class="bottlecap-list-header flexrow">
       <div class="bottlecap-action-list bottlecap-create">
-        <a class="bottlecap-create-cap bottlecap-action" data-action="create"><i class="fas fa-plus"></i></a>
+        <a class="bottlecap-action" data-action="create"><i class="fas fa-plus"></i></a>
       </div>
       <div class="bottlecap-name">Name</div>
-      <div class="bottlecap-delete-label">Delete</div>
+      <div class="bottlecap-delete-label">Actions</div>
     </li>
     {{#each bottleCapList as |cap key|}}
     <li class="bottlecap-list-item flexrow">
@@ -14,8 +14,8 @@
         {{cap.name}}
       </div>
       <div class="bottlecap-action-list">
-        <a class="bottlecap-edit-cap bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}"><i class="fas fa-edit"></i></a>&nbsp;
-        <a class="bottlecap-delete-cap bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}"><i class="fas fa-trash"></i></a>
+        <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}"><i class="fas fa-edit"></i></a>&nbsp;
+        <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}"><i class="fas fa-trash"></i></a>
       </div>
     </li>
     {{/each}}

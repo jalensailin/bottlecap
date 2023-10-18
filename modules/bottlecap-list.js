@@ -32,31 +32,35 @@ export default class BottleCapList extends Application {
   activateListeners(html) {
     super.activateListeners(html);
 
-    html.on("click", ".bottlecap-create-cap", async () => {
-      const newCap = new BottleCap();
-      const config = new BottleCapConfig(newCap, { isCreationDialog: true });
-      config.render(true);
+    html.on("click", ".bottlecap-action", (event) => {
+      const { action, capId } = event.currentTarget.dataset;
+      const Action = action.charAt(0).toUpperCase() + action.slice(1); // Make first letter upperCase
+      this[`open${Action}Dialog`](capId);
     });
+  }
 
-    html.on("click", ".bottlecap-edit-cap", async (event) => {
-      const { capId } = event.currentTarget.dataset;
-      const bottleCap = game.user.getFlag(BottleCap.ID, BottleCap.FLAG)[capId];
-      const config = new BottleCapConfig(bottleCap, {
-        isCreationDialog: false,
-      });
-      config.render(true);
-    });
+  openCreateDialog() {
+    const newCap = new BottleCap();
+    const config = new BottleCapConfig(newCap, { isCreationDialog: true });
+    config.render(true);
+  }
 
-    html.on("click", ".bottlecap-delete-cap", async (event) => {
-      const { capId } = event.currentTarget.dataset;
-      const confirmed = await Dialog.confirm({
-        title: game.i18n.localize("BC.confirmDelete.title"),
-        content: game.i18n.localize("BC.confirmDelete.content"),
-      });
-      if (confirmed) {
-        await BottleCap.deleteBottleCap(capId);
-        this.render(true);
-      }
+  openEditDialog(capId) {
+    const bottleCap = game.user.getFlag(BottleCap.ID, BottleCap.FLAG)[capId];
+    const config = new BottleCapConfig(bottleCap, {
+      isCreationDialog: false,
     });
+    config.render(true);
+  }
+
+  async openDeleteDialog(capId) {
+    const confirmed = await Dialog.confirm({
+      title: game.i18n.localize("BC.confirmDelete.title"),
+      content: game.i18n.localize("BC.confirmDelete.content"),
+    });
+    if (confirmed) {
+      await BottleCap.deleteBottleCap(capId);
+      this.render(true);
+    }
   }
 }
