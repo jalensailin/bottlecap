@@ -7,7 +7,7 @@ export default class BottleCap {
 
   constructor(data = {}) {
     this.name = data.name || `${game.i18n.localize("BC.bottleCap!")}`;
-    this.img = data.img || `/icons/commodities/tech/cog-large-steel-white.webp`;
+    this.img = data.img || `icons/commodities/tech/cog-large-steel-white.webp`;
     this.spent = false;
     this.context = "";
   }
