@@ -1,7 +1,7 @@
 /* Bottle Cap List and Config */
 
 /* Foundry overrides borrowed from SmallTime module */
-#bottlecap-app .window-content,
+#bottlecap-list-app .window-content,
 #bottlecap-config-form-app .window-content {
   border-radius: 5px;
   padding: 0;

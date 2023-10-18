@@ -52,7 +52,7 @@ export default class BottleCapConfig extends FormApplication {
     }
 
     const bottleCapApp = Object.values(ui.windows).find(
-      (w) => w.id === "bottlecap-app",
+      (w) => w.id === "bottlecap-list-app",
     );
     return bottleCapApp ? bottleCapApp.render(true) : this.close();
   }

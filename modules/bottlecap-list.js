@@ -8,10 +8,12 @@ export default class BottleCapList extends Application {
 
     const overrides = {
       height: "auto",
-      id: "bottlecap-app",
+      width: 285,
+      id: "bottlecap-list-app",
       template: "modules/bottlecap/templates/bottlecap-list.hbs",
       title: game.i18n.localize("BC.bottleCapList"),
       userId: game.userId,
+      resizable: true,
     };
 
     const mergedOptions = mergeObject(defaults, overrides);
