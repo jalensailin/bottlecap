@@ -23,9 +23,12 @@ export default class BottleCapList extends Application {
 
   getData() {
     const foundryData = super.getData();
+    const bottleCapList = Object.values(
+      game.user.getFlag(BottleCap.ID, BottleCap.FLAG),
+    ).filter((bc) => !bc.spent);
     return {
       ...foundryData,
-      bottleCapList: game.user.getFlag(BottleCap.ID, BottleCap.FLAG),
+      bottleCapList,
     };
   }
 
@@ -60,6 +63,17 @@ export default class BottleCapList extends Application {
     });
     if (confirmed) {
       await BottleCap.deleteBottleCap(capId);
+      this.render(true);
+    }
+  }
+
+  async openSpendDialog(capId) {
+    const confirmed = await Dialog.confirm({
+      title: game.i18n.localize("BC.confirmSpend.title"),
+      content: game.i18n.localize("BC.confirmSpend.content"),
+    });
+    if (confirmed) {
+      await BottleCap.spendBottleCap(capId);
       this.render(true);
     }
   }

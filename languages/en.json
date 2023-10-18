@@ -11,8 +11,15 @@
   "BC.config.name": "Name",
   "BC.config.title.create": "Create Bottle Cap",
   "BC.config.title.edit": "Edit Bottle Cap",
+  "BC.config.tooltip.create": "Create Bottle Cap",
+  "BC.config.tooltip.delete": "Delete Bottle Cap",
+  "BC.config.tooltip.edit": "Edit Bottle Cap",
+  "BC.config.tooltip.spend": "Spend Bottle Cap",
   "BC.config.user": "User",
 
   "BC.confirmDelete.content": "Are you sure you want to delete this bottle cap?",
-  "BC.confirmDelete.title": "Delete Bottle Cap?"
+  "BC.confirmDelete.title": "Delete Bottle Cap?",
+
+  "BC.confirmSpend.content": "Are you sure you want to spend this bottle cap?",
+  "BC.confirmSpend.title": "Spend Bottle Cap?"
 }

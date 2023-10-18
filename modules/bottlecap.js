@@ -41,4 +41,13 @@ export default class BottleCap {
 
     return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, deletedCap);
   }
+
+  static spendBottleCap(id) {
+    const updatedCap = {
+      [id]: {
+        spent: true,
+      },
+    };
+    return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, updatedCap);
+  }
 }
