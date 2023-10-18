@@ -1,0 +1,32 @@
+<form class="bottlecap-config">
+  <ol class="bottlecap-settings-list">
+    <li class="flexrow bottlecap-settings-item">
+      <div class="bottlecap-settings-label">{{localize "BC.config.user"}}: </div>
+      {{#select user}}
+        <select class="bottlecap-select-user" name="user">
+          {{#each userData as |user|}}
+            <option value="{{user.id}}">{{user.name}}</option>
+          {{/each}}
+        </select>
+      {{/select}}
+    </li>
+    <li class="flexrow bottlecap-settings-item">
+      <div class="bottlecap-settings-label">{{localize "BC.config.name"}}: </div>
+      <input type="text" name="name" data-dtype="String" value="{{localize "BC.bottleCap"}}">
+    </li>
+    <li class="flexrow bottlecap-settings-item">
+      <div class="bottlecap-settings-label">{{localize "BC.config.icon"}}: </div>
+      <div class="flexrow">
+        <input type="text" name="img" value="/icons/commodities/tech/cog-large-steel-white.webp" data-dtype="String" >
+        {{filePicker type="image" target="img"}}
+      </div>
+    </li>
+    <li class="flexrow bottlecap-settings-item">
+      <div class="bottlecap-settings-label">{{localize "BC.config.context"}}: </div>
+      <input type="text" name="context" placeholder="{{localize "BC.config.contextPlaceholder"}}" data-dtype="String">
+    </li>
+  </ol>
+  <button class="bottlecap-create-cap">
+    {{localize "BC.config.giveBottleCap" user=currentUserName}}
+  </button>
+</form>

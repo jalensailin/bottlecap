@@ -19,9 +19,13 @@ Hooks.on("renderPlayerList", (playerList) => {
     // Do nothing
   }
 
-  const button = `<button type='button' class='flexrow flex1 bottlecap-button'>${bottleCapNumber}<img src="modules/bottlecap/assets/bottlecap-draft-2.svg"></button>`;
+  let buttonHTML = "";
+  buttonHTML += `<button type='button' class='flex1 bottlecap-button'>`;
+  buttonHTML += `  <div class="bottlecap-number">${bottleCapNumber}</div>`;
+  buttonHTML += `  <img src="modules/bottlecap/assets/bottlecap-draft-3.svg">`;
+  buttonHTML += `</button>`;
   playersHeader.addClass("flexrow");
-  playersHeader.append(button);
+  playersHeader.append(buttonHTML);
 
   playersHeader.on("click", "button", (event) => {
     event.stopPropagation();

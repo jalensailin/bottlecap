@@ -6,10 +6,14 @@
   line-height: normal;
   border: 0;
   align-self: center;
+  display: block;
+  position: relative;
 }
 
-.bottlecap-button > i {
-  margin-right: 0;
+.bottlecap-button .bottlecap-number {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.5rem;
 }
 
 .bottlecap-button > img {
@@ -17,6 +21,7 @@
   width: 24px;
   border: 0;
   max-width: none;
+  display: block;
 }
 
 .bottlecap-button:hover,

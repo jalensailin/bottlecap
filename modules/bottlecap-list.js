@@ -1,5 +1,6 @@
-/* global game mergeObject Application */
+/* global game mergeObject Application Dialog */
 import BottleCap from "./bottlecap.js";
+import BottleCapConfig from "./bottlecap-config.js";
 
 export default class BottleCapList extends Application {
   static get defaultOptions() {
@@ -19,9 +20,9 @@ export default class BottleCapList extends Application {
   }
 
   getData() {
-    const data = super.getData();
+    const foundryData = super.getData();
     return {
-      ...data,
+      ...foundryData,
       bottleCapList: game.user.getFlag(BottleCap.ID, BottleCap.FLAG),
     };
   }
@@ -30,14 +31,22 @@ export default class BottleCapList extends Application {
     super.activateListeners(html);
 
     html.on("click", ".bottlecap-create-cap", async () => {
-      await BottleCap.createBottleCap();
-      this.render(true);
+      const config = new BottleCapConfig();
+      config.render(true);
+      // await BottleCap.createBottleCap();
+      // this.render(true);
     });
 
     html.on("click", ".bottlecap-delete-cap", async (event) => {
       const { capId } = event.currentTarget.dataset;
-      await BottleCap.deleteBottleCap(capId);
-      this.render(true);
+      const confirmed = await Dialog.confirm({
+        title: game.i18n.localize("BC.confirmDelete.title"),
+        content: game.i18n.localize("BC.confirmDelete.content"),
+      });
+      if (confirmed) {
+        await BottleCap.deleteBottleCap(capId);
+        this.render(true);
+      }
     });
   }
 }
