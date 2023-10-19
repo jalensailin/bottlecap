@@ -102,6 +102,17 @@
   padding: 0.3rem 0 0.3rem 0.3rem;
 }
 
+.bottlecap-list-header select {
+  color: inherit;
+  background-color: var(--bottlecap-blue);
+  height: auto;
+}
+
+.bottlecap-list-header select option {
+  color: inherit;
+  background-color: var(--bottlecap-lightblue);
+}
+
 .bottlecap-list-item,
 .bottlecap-settings-item {
   align-items: center;
@@ -158,6 +169,12 @@
 .bottlecap-name-label {
   flex: 3;
   padding: 0 0 0 0.3rem;
+}
+
+.bottlecap-select-player-container {
+  flex: 3;
+  padding: 0 0 0 0.3rem;
+  text-align: center;
 }
 
 .bottlecap-name-context {

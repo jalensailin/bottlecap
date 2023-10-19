@@ -8,9 +8,19 @@
     <ol class="tab bottlecap-list" data-tab="active">
       <li class="bottlecap-list-header flexrow">
         <div class="bottlecap-action-list bottlecap-create">
+          x{{bottleCapList.active.length}}
           <a class="bottlecap-action" data-action="create" data-tooltip="BC.config.tooltip.create"><i class="fas fa-plus"></i></a>
         </div>
-        <div class="bottlecap-name">Name</div>
+        <div class="bottlecap-select-player-container">
+          {{localize "BC.bottleCapList.player"}}:
+          {{#select currentUser}}
+            <select class="bottlecap-select-player">
+              {{#each userData as |user|}}
+                <option value="{{user.id}}">{{user.name}}</option>
+              {{/each}}
+            </select>
+          {{/select}}
+        </div>
         <div class="bottlecap-delete-label">Actions</div>
       </li>
       {{#each bottleCapList.active as |cap|}}
@@ -30,12 +40,27 @@
             <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
           </div>
         </li>
+      {{else}}
+        <li class="bottlecap-list-item" style="text-align:center">
+          <span>{{localize "BC.bottleCapList.noActiveCaps"}}</span>
+        </li>
       {{/each}}
     </ol>
     <ol class="tab bottlecap-list" data-tab="graveyard">
       <li class="bottlecap-list-header flexrow">
-        <div class="bottlecap-action-list bottlecap-create"></div>
-        <div class="bottlecap-name">Name</div>
+        <div class="bottlecap-action-list bottlecap-create">
+          x{{bottleCapList.graveyard.length}}
+        </div>
+        <div class="bottlecap-select-player-container">
+          {{localize "BC.bottleCapList.player"}}:
+          {{#select currentUser}}
+            <select class="bottlecap-select-player">
+              {{#each userData as |user|}}
+                <option value="{{user.id}}">{{user.name}}</option>
+              {{/each}}
+            </select>
+          {{/select}}
+        </div>
         <div class="bottlecap-delete-label">Actions</div>
       </li>
       {{#each bottleCapList.graveyard as |cap|}}
@@ -54,6 +79,10 @@
             <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
             <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
           </div>
+        </li>
+      {{else}}
+        <li class="bottlecap-list-item" style="text-align:center">
+          <span>{{localize "BC.bottleCapList.noSpentCaps"}}</span>
         </li>
       {{/each}}
     </ol>

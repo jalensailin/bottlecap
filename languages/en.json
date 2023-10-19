@@ -1,6 +1,9 @@
 {
   "BC.bottleCap": "Bottle Cap",
   "BC.bottleCap!": "Bottle Cap!",
+  "BC.bottleCapList.noActiveCaps": "All out of caps!",
+  "BC.bottleCapList.noSpentCaps": "No caps spent!",
+  "BC.bottleCapList.player": "Player",
   "BC.bottleCapList.tabs.current": "Current Caps",
   "BC.bottleCapList.tabs.graveyard": "Spent Caps",
   "BC.bottleCapList.title": "Bottle Cap Jawn",

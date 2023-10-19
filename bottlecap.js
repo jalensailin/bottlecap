@@ -10,14 +10,8 @@ Hooks.once("init", () => {
 Hooks.on("renderPlayerList", (playerList) => {
   // All of this is jquery stuff.
   const playersHeader = playerList.element.find("h3");
-  let bottleCapNumber = 0;
-  try {
-    bottleCapNumber = Object.values(BottleCap.getFlag(game.user.id)).filter(
-      (bc) => !bc.spent,
-    ).length;
-  } catch {
-    // Do nothing
-  }
+  const allBottleCaps = Object.values(BottleCap.getFlag(game.user.id) || {});
+  const bottleCapNumber = allBottleCaps.filter((bc) => !bc.spent).length;
 
   let buttonHTML = "";
   buttonHTML += `<button type='button' class='flex1 bottlecap-button'>`;

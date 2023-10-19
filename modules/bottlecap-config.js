@@ -2,9 +2,10 @@
 import BottleCap from "./bottlecap.js";
 
 export default class BottleCapConfig extends FormApplication {
-  constructor(object, options) {
+  constructor(object, currentUser, options) {
     super(object, options);
     this.isCreationDialog = options.isCreationDialog;
+    this.currentUser = currentUser;
 
     // Change title if this is a creation dialog.
     if (this.isCreationDialog)
@@ -32,17 +33,19 @@ export default class BottleCapConfig extends FormApplication {
     return mergedOptions;
   }
 
-  getData() {
-    const foundryData = super.getData();
+  getData(options) {
+    const foundryData = super.getData(options);
     const userData = game.users.contents.map((u) => ({
       name: u.name,
       id: u.id,
     }));
     const { isCreationDialog } = this; // The .hbs template displays different verbiage for a creation dialog vs. an edit dialog.
+    const currentUser = game.users.get(this.currentUser);
     return {
       ...foundryData,
       ...this.object,
       userData,
+      currentUser,
       isCreationDialog,
     };
   }
@@ -60,9 +63,9 @@ export default class BottleCapConfig extends FormApplication {
     const newData = mergeObject(this.object, formData);
 
     if (this.isCreationDialog) {
-      await BottleCap.createBottleCap(newData);
+      await BottleCap.createBottleCap(newData.user, newData);
     } else {
-      await BottleCap.updateBottleCap(newData);
+      await BottleCap.updateBottleCap(newData.user, newData);
     }
 
     const bottleCapApp = Object.values(ui.windows).find(

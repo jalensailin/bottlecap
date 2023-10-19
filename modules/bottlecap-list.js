@@ -3,6 +3,11 @@ import BottleCap from "./bottlecap.js";
 import BottleCapConfig from "./bottlecap-config.js";
 
 export default class BottleCapList extends Application {
+  constructor(options) {
+    super(options);
+    this.currentUser = game.user.id;
+  }
+
   static get defaultOptions() {
     const defaults = super.defaultOptions;
 
@@ -28,10 +33,15 @@ export default class BottleCapList extends Application {
     return mergedOptions;
   }
 
-  getData() {
-    const foundryData = super.getData();
-    const bottleCapFlag = Object.values(BottleCap.getFlag(game.user.id));
+  getData(options) {
+    const foundryData = super.getData(options);
+    const userId = this.currentUser;
+    const bottleCapFlag = Object.values(BottleCap.getFlag(userId) || {});
     const bottleCapList = { active: [], graveyard: [] };
+    const userData = game.users.contents.map((u) => ({
+      name: u.name,
+      id: u.id,
+    }));
     bottleCapFlag.forEach((bc) => {
       if (!bc.spent) {
         bottleCapList.active.push(bc);
@@ -42,6 +52,8 @@ export default class BottleCapList extends Application {
     return {
       ...foundryData,
       bottleCapList,
+      userData,
+      currentUser: userId,
     };
   }
 
@@ -53,17 +65,24 @@ export default class BottleCapList extends Application {
       const Action = action.charAt(0).toUpperCase() + action.slice(1); // Make first letter upperCase
       this[`open${Action}Dialog`](capId);
     });
+
+    html.on("change", ".bottlecap-select-player", (event) => {
+      this.currentUser = event.currentTarget.value;
+      this.render(true);
+    });
   }
 
   openCreateDialog() {
     const newCap = new BottleCap();
-    const config = new BottleCapConfig(newCap, { isCreationDialog: true });
+    const config = new BottleCapConfig(newCap, this.currentUser, {
+      isCreationDialog: true,
+    });
     config.render(true);
   }
 
   openEditDialog(capId) {
-    const bottleCap = game.user.getFlag(BottleCap.ID, BottleCap.FLAG)[capId];
-    const config = new BottleCapConfig(bottleCap, {
+    const bottleCap = BottleCap.getFlag(this.currentUser)[capId];
+    const config = new BottleCapConfig(bottleCap, this.currentUser, {
       isCreationDialog: false,
     });
     config.render(true);
@@ -75,7 +94,7 @@ export default class BottleCapList extends Application {
       content: game.i18n.localize("BC.confirmDelete.content"),
     });
     if (confirmed) {
-      await BottleCap.deleteBottleCap(capId);
+      await BottleCap.deleteBottleCap(this.currentUser, capId);
       this.render(true);
     }
   }
@@ -86,7 +105,7 @@ export default class BottleCapList extends Application {
       content: game.i18n.localize("BC.confirmSpend.content"),
     });
     if (confirmed) {
-      await BottleCap.spendBottleCap(capId);
+      await BottleCap.spendBottleCap(this.currentUser, capId);
       this.render(true);
     }
   }
@@ -97,7 +116,7 @@ export default class BottleCapList extends Application {
       content: game.i18n.localize("BC.confirmRevivify.content"),
     });
     if (confirmed) {
-      await BottleCap.revivifyBottleCap(capId);
+      await BottleCap.revivifyBottleCap(this.currentUser, capId);
       this.render(true);
     }
   }
