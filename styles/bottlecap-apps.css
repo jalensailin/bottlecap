@@ -1,4 +1,21 @@
 /* Bottle Cap List and Config */
+:root {
+  /* Text/icon/input colors */
+  --bottlecap-text-white: rgba(255, 255, 255, 0.9);
+  --bottlecap-trash-red: rgb(146, 37, 37);
+  --bottlecap-placeholder-gray: rgba(255, 255, 255, 0.6);
+
+  /* List colors */
+  --bottlecap-blue: #121d2b;
+  --bottlecap-lightblue: #303d4e;
+  --bottlecap-darkblue: #191a1b;
+
+  /* Tab colors */
+  --bottlecap-green: darkgreen;
+  --bottlecap-lightgreen: lightgreen;
+  --bottlecap-darkgreen: rgb(24, 77, 24);
+  --bottlecap-verydarkgreen: rgb(12, 43, 12);
+}
 
 /* Foundry overrides borrowed from SmallTime module */
 #bottlecap-list-app .window-content,
@@ -11,7 +28,7 @@
   box-shadow: none;
   border: none;
   background-attachment: unset;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--bottlecap-text-white);
 }
 
 .bottlecap-form ol,
@@ -21,31 +38,49 @@
 
 /* Tab styling */
 .bottlecap-tabs {
-  background-color: rgb(94, 103, 133);
+  background-color: var(--bottlecap-verydarkgreen);
   padding: 0.3rem 0.3rem 0 0.3rem;
   text-align: center;
+  overflow: hidden;
 }
 
 .bottlecap-tabs > a {
-  border-color: darkgray;
+  position: relative;
+  border-color: var(--bottlecap-green);
   border-style: solid solid none solid;
   border-width: 2px 2px 0 2px;
   border-radius: 5px 5px 0 0;
+  transition: 250ms ease-in-out;
+  transition-property: all;
+}
+
+.bottlecap-tabs > a:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  border-radius: inherit;
+  box-shadow: 0 0 1em 0.5em var(--bottlecap-green);
+  transition: 250ms ease-in-out;
+  transition-property: opacity;
+}
+
+.bottlecap-tabs > a:hover,
+.bottlecap-tabs > a:focus {
+  text-shadow: 0 0 6px var(--bottlecap-lightgreen);
 }
 
 .bottlecap-tabs > a.active {
-  border-color: lightgrey;
+  background-color: var(--bottlecap-darkgreen);
+  text-shadow: 0 0 6px var(--bottlecap-lightgreen);
 }
 
-.bottlecap-tabs > a.active {
-  text-shadow: 0 0 8px var(--color-shadow-primary);
-}
-
-.bottlecap-tabs > a > * {
+.bottlecap-tabs > a > .bottlecap-tab-text {
   display: block;
   padding: 0.3rem;
 }
 
+/* List styling */
 .bottlecap-list,
 .bottlecap-settings-list {
   padding: 0;
@@ -54,26 +89,26 @@
 }
 
 .bottlecap-config button {
-  background-color: #191a1b;
+  background-color: var(--bottlecap-darkblue);
   color: inherit;
 }
 
 .bottlecap-list-header {
   align-items: center;
-  background-color: #191a1b;
+  background-color: var(--bottlecap-darkblue);
   padding: 0.3rem 0 0.3rem 0.3rem;
 }
 
 .bottlecap-list-item,
 .bottlecap-settings-item {
   align-items: center;
-  background-color: #121d2b;
+  background-color: var(--bottlecap-blue);
   padding: 0.3rem 0 0.3rem 0.3rem;
 }
 
 .bottlecap-list-item:nth-child(even),
 .bottlecap-settings-item:nth-child(even) {
-  background-color: #303d4e;
+  background-color: var(--bottlecap-lightblue);
 }
 
 .bottlecap-list-item:last-child,
@@ -95,11 +130,11 @@
 
 .bottlecap-settings-item > select option {
   color: inherit;
-  background-color: #303d4e;
+  background-color: var(--bottlecap-lightblue);
 }
 
 .bottlecap-settings-item > input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--bottlecap-placeholder-gray);
 }
 
 .bottlecap-list-item > img {
@@ -130,5 +165,5 @@
 }
 
 .bottlecap-action[data-action="delete"] > i {
-  color: rgb(146, 37, 37);
+  color: var(--bottlecap-trash-red);
 }

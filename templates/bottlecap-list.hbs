@@ -1,8 +1,8 @@
 <form class="bottlecap-form">
     {{!-- Sheet Tab Navigation --}}
   <nav class="bottlecap-tabs tabs" data-group="primary">
-    <a data-tab="active"><div>{{localize "BC.bottleCapList.tabs.current"}} <i class="fas fa-hand-spock"></i></div></a>
-    <a data-tab="graveyard"><div>{{localize "BC.bottleCapList.tabs.graveyard"}} <i class="fa-solid fa-champagne-glasses"></i><i class="fas fa-ghost"></i></div></a>
+    <a data-tab="active"><div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.current"}} <i class="fas fa-hand-spock"></i></div></a>
+    <a data-tab="graveyard"><div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.graveyard"}} <i class="fa-solid fa-champagne-glasses"></i><i class="fas fa-ghost"></i></div></a>
   </nav>
   <section class="bottlecap-list-container">
     <ol class="tab bottlecap-list" data-tab="active">
@@ -40,7 +40,7 @@
           {{cap.name}}
         </div>
         <div class="bottlecap-action-list">
-          <a class="bottlecap-action" data-action="revivify" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.spend"><i class="fas fa-rotate-left"></i></a>&nbsp;
+          <a class="bottlecap-action" data-action="revivify" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.revivify"><i class="fas fa-rotate-left"></i></a>&nbsp;
           <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
           <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
         </div>

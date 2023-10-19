@@ -2,7 +2,7 @@
 .bottlecap-button {
   background: transparent;
   padding: 0;
-  color: white;
+  color: var(--bottlecap-text-white);
   line-height: normal;
   border: 0;
   align-self: center;
