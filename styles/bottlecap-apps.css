@@ -3,6 +3,7 @@
   /* Text/icon/input colors */
   --bottlecap-text-white: rgba(255, 255, 255, 0.9);
   --bottlecap-trash-red: rgb(146, 37, 37);
+  --bottlecap-red: #bb2345;
   --bottlecap-context-gray: rgba(255, 255, 255, 0.719);
   --bottlecap-placeholder-gray: rgba(255, 255, 255, 0.6);
 
@@ -176,5 +177,5 @@
 }
 
 .bottlecap-action[data-action="delete"] > i {
-  color: var(--bottlecap-trash-red);
+  color: var(--bottlecap-red);
 }
