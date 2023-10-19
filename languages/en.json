@@ -1,7 +1,9 @@
 {
   "BC.bottleCap": "Bottle Cap",
   "BC.bottleCap!": "Bottle Cap!",
-  "BC.bottleCapList": "Bottle Cap List",
+  "BC.bottleCapList.tabs.current": "Current Caps",
+  "BC.bottleCapList.tabs.graveyard": "Spent Caps",
+  "BC.bottleCapList.title": "Bottle Cap Jawn",
 
   "BC.config.button.give": "Give Bottle Cap",
   "BC.config.button.update": "Update Bottle Cap",
@@ -19,6 +21,9 @@
 
   "BC.confirmDelete.content": "Are you sure you want to delete this bottle cap?",
   "BC.confirmDelete.title": "Delete Bottle Cap?",
+
+  "BC.confirmRevivify.content": "Are you sure you want to revivify this bottle cap?",
+  "BC.confirmRevivify.title": "Revivify Bottle Cap?",
 
   "BC.confirmSpend.content": "Are you sure you want to spend this bottle cap?",
   "BC.confirmSpend.title": "Spend Bottle Cap?"

@@ -11,11 +11,39 @@
   box-shadow: none;
   border: none;
   background-attachment: unset;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.bottlecap-form > ol,
+.bottlecap-form ol,
 .bottlecap-config > ol {
   margin: 0;
+}
+
+/* Tab styling */
+.bottlecap-tabs {
+  background-color: rgb(94, 103, 133);
+  padding: 0.3rem 0.3rem 0 0.3rem;
+  text-align: center;
+}
+
+.bottlecap-tabs > a {
+  border-color: darkgray;
+  border-style: solid solid none solid;
+  border-width: 2px 2px 0 2px;
+  border-radius: 5px 5px 0 0;
+}
+
+.bottlecap-tabs > a.active {
+  border-color: lightgrey;
+}
+
+.bottlecap-tabs > a.active {
+  text-shadow: 0 0 8px var(--color-shadow-primary);
+}
+
+.bottlecap-tabs > a > * {
+  display: block;
+  padding: 0.3rem;
 }
 
 .bottlecap-list,
@@ -27,13 +55,12 @@
 
 .bottlecap-config button {
   background-color: #191a1b;
-  color: rgba(255, 255, 255, 0.9);
+  color: inherit;
 }
 
 .bottlecap-list-header {
   align-items: center;
   background-color: #191a1b;
-  color: rgba(255, 255, 255, 0.9);
   padding: 0.3rem 0 0.3rem 0.3rem;
 }
 
@@ -41,7 +68,6 @@
 .bottlecap-settings-item {
   align-items: center;
   background-color: #121d2b;
-  color: rgba(255, 255, 255, 0.9);
   padding: 0.3rem 0 0.3rem 0.3rem;
 }
 
@@ -59,16 +85,16 @@
 .bottlecap-settings-item > input,
 .bottlecap-settings-item > select,
 .bottlecap-settings-item > .bottlecap-filepicker {
-  color: rgba(255, 255, 255, 0.9);
+  color: inherit;
   flex: 3;
 }
 
 .bottlecap-settings-item > .bottlecap-filepicker > * {
-  color: rgba(255, 255, 255, 0.9);
+  color: inherit;
 }
 
 .bottlecap-settings-item > select option {
-  color: rgba(255, 255, 255, 0.9);
+  color: inherit;
   background-color: #303d4e;
 }
 

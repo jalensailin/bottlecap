@@ -50,4 +50,13 @@ export default class BottleCap {
     };
     return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, updatedCap);
   }
+
+  static revivifyBottleCap(id) {
+    const updatedCap = {
+      [id]: {
+        spent: false,
+      },
+    };
+    return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, updatedCap);
+  }
 }

@@ -11,9 +11,16 @@ export default class BottleCapList extends Application {
       width: 285,
       id: "bottlecap-list-app",
       template: "modules/bottlecap/templates/bottlecap-list.hbs",
-      title: game.i18n.localize("BC.bottleCapList"),
+      title: game.i18n.localize("BC.bottleCapList.title"),
       userId: game.userId,
       resizable: true,
+      tabs: [
+        {
+          navSelector: ".bottlecap-tabs",
+          contentSelector: ".bottlecap-list-container",
+          initial: "active",
+        },
+      ],
     };
 
     const mergedOptions = mergeObject(defaults, overrides);
@@ -23,9 +30,17 @@ export default class BottleCapList extends Application {
 
   getData() {
     const foundryData = super.getData();
-    const bottleCapList = Object.values(
+    const bottleCapFlag = Object.values(
       game.user.getFlag(BottleCap.ID, BottleCap.FLAG),
-    ).filter((bc) => !bc.spent);
+    );
+    const bottleCapList = { active: [], graveyard: [] };
+    bottleCapFlag.forEach((bc) => {
+      if (!bc.spent) {
+        bottleCapList.active.push(bc);
+      } else {
+        bottleCapList.graveyard.push(bc);
+      }
+    });
     return {
       ...foundryData,
       bottleCapList,
@@ -74,6 +89,17 @@ export default class BottleCapList extends Application {
     });
     if (confirmed) {
       await BottleCap.spendBottleCap(capId);
+      this.render(true);
+    }
+  }
+
+  async openRevivifyDialog(capId) {
+    const confirmed = await Dialog.confirm({
+      title: game.i18n.localize("BC.confirmRevivify.title"),
+      content: game.i18n.localize("BC.confirmRevivify.content"),
+    });
+    if (confirmed) {
+      await BottleCap.revivifyBottleCap(capId);
       this.render(true);
     }
   }
