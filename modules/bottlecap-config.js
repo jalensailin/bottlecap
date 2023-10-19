@@ -14,9 +14,14 @@ export default class BottleCapConfig extends FormApplication {
   static get defaultOptions() {
     const defaults = super.defaultOptions;
 
+    // Get the number of already opened config windows so that we can give the new one a unique ID.
+    // This way we can render multiple config windows at once.
+    const num = Object.values(ui.windows).filter(
+      (w) => w.template === "modules/bottlecap/templates/bottlecap-config.hbs",
+    ).length;
     const overrides = {
       height: "auto",
-      id: "bottlecap-config-form-app",
+      id: `bottlecap-config-form-app-${num}`,
       template: "modules/bottlecap/templates/bottlecap-config.hbs",
       title: game.i18n.localize("BC.config.title.edit"), // Default mode is edit.
       userId: game.userId,

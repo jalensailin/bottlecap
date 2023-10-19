@@ -21,7 +21,8 @@
 
 /* Foundry overrides borrowed from SmallTime module */
 #bottlecap-list-app .window-content,
-#bottlecap-config-form-app .window-content {
+/* Matches id for beginning of id string */
+[id^="bottlecap-config-form-app-"] .window-content {
   padding: 0;
   background: none;
   margin: 0;
