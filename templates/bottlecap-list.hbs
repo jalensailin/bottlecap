@@ -14,17 +14,22 @@
         <div class="bottlecap-delete-label">Actions</div>
       </li>
       {{#each bottleCapList.active as |cap|}}
-      <li class="bottlecap-list-item flexrow">
-        <img class="bottlecap-thumb" src="{{cap.img}}">
-        <div class="bottlecap-name">
-          {{cap.name}}
-        </div>
-        <div class="bottlecap-action-list">
-          <a class="bottlecap-action" data-action="spend" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.spend"><i class="fas fa-dice-d20"></i></a>&nbsp;
-          <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
-          <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
-        </div>
-      </li>
+        <li class="bottlecap-list-item flexrow">
+          <img class="bottlecap-thumb" src="{{cap.img}}">
+          <div class="bottlecap-name flexcol">
+            <div class="bottlecap-name-text">
+              {{cap.name}}
+            </div>
+            <div class="bottlecap-name-context">
+              {{cap.context}}
+            </div>
+          </div>
+          <div class="bottlecap-action-list">
+            <a class="bottlecap-action" data-action="spend" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.spend"><i class="fas fa-dice-d20"></i></a>&nbsp;
+            <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
+            <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
       {{/each}}
     </ol>
     <ol class="tab bottlecap-list" data-tab="graveyard">
@@ -34,17 +39,22 @@
         <div class="bottlecap-delete-label">Actions</div>
       </li>
       {{#each bottleCapList.graveyard as |cap|}}
-      <li class="bottlecap-list-item flexrow">
-        <img class="bottlecap-thumb" src="{{cap.img}}">
-        <div class="bottlecap-name">
-          {{cap.name}}
-        </div>
-        <div class="bottlecap-action-list">
-          <a class="bottlecap-action" data-action="revivify" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.revivify"><i class="fas fa-rotate-left"></i></a>&nbsp;
-          <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
-          <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
-        </div>
-      </li>
+        <li class="bottlecap-list-item flexrow">
+          <img class="bottlecap-thumb" src="{{cap.img}}">
+          <div class="bottlecap-name flexcol">
+            <div class="bottlecap-name-text">
+              {{cap.name}}
+            </div>
+            <div class="bottlecap-name-context">
+              {{cap.context}}
+            </div>
+          </div>
+          <div class="bottlecap-action-list">
+            <a class="bottlecap-action" data-action="revivify" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.revivify"><i class="fas fa-rotate-left"></i></a>&nbsp;
+            <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
+            <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
       {{/each}}
     </ol>
   </section>
