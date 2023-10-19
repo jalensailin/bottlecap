@@ -12,6 +12,18 @@ export default class BottleCap {
     this.context = "";
   }
 
+  /* Helpers to set and get bottlecaps on specific users */
+  static setFlag(userId, capData) {
+    const user = game.users.get(userId);
+    return user.setFlag(BottleCap.ID, BottleCap.FLAG, capData);
+  }
+
+  static getFlag(userId) {
+    const user = game.users.get(userId);
+    return user.getFlag(BottleCap.ID, BottleCap.FLAG);
+  }
+
+  /* CRUD Methods */
   static createBottleCap(data) {
     const baseObject = {
       ...data,
@@ -22,7 +34,7 @@ export default class BottleCap {
       [baseObject.id]: baseObject,
     };
 
-    return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, newBottleCap);
+    return BottleCap.setFlag(game.user.id, newBottleCap);
   }
 
   static updateBottleCap(data = {}) {
@@ -31,7 +43,7 @@ export default class BottleCap {
       [id]: data,
     };
 
-    return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, updatedCap);
+    return BottleCap.setFlag(game.user.id, updatedCap);
   }
 
   static deleteBottleCap(id) {
@@ -39,24 +51,24 @@ export default class BottleCap {
       [`-=${id}`]: null,
     };
 
-    return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, deletedCap);
+    return BottleCap.setFlag(game.user.id, deletedCap);
   }
 
   static spendBottleCap(id) {
-    const updatedCap = {
+    const spentCap = {
       [id]: {
         spent: true,
       },
     };
-    return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, updatedCap);
+    return BottleCap.setFlag(game.user.id, spentCap);
   }
 
   static revivifyBottleCap(id) {
-    const updatedCap = {
+    const revivedCap = {
       [id]: {
         spent: false,
       },
     };
-    return game.user.setFlag(BottleCap.ID, BottleCap.FLAG, updatedCap);
+    return BottleCap.setFlag(game.user.id, revivedCap);
   }
 }

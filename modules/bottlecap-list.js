@@ -30,9 +30,7 @@ export default class BottleCapList extends Application {
 
   getData() {
     const foundryData = super.getData();
-    const bottleCapFlag = Object.values(
-      game.user.getFlag(BottleCap.ID, BottleCap.FLAG),
-    );
+    const bottleCapFlag = Object.values(BottleCap.getFlag(game.user.id));
     const bottleCapList = { active: [], graveyard: [] };
     bottleCapFlag.forEach((bc) => {
       if (!bc.spent) {

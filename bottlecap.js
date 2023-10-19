@@ -12,9 +12,9 @@ Hooks.on("renderPlayerList", (playerList) => {
   const playersHeader = playerList.element.find("h3");
   let bottleCapNumber = 0;
   try {
-    bottleCapNumber = Object.values(
-      game.user.getFlag(BottleCap.ID, BottleCap.FLAG),
-    ).filter((bc) => !bc.spent).length;
+    bottleCapNumber = Object.values(BottleCap.getFlag(game.user.id)).filter(
+      (bc) => !bc.spent,
+    ).length;
   } catch {
     // Do nothing
   }
