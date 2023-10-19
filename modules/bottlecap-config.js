@@ -42,6 +42,15 @@ export default class BottleCapConfig extends FormApplication {
     };
   }
 
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // Select on focus in the input for quick deletion.
+    html.on("focus", "input", (event) => {
+      event.currentTarget.select();
+    });
+  }
+
   async _updateObject(event, formData) {
     const newData = mergeObject(this.object, formData);
 
