@@ -13,7 +13,7 @@ export default class BottleCapList extends Application {
 
     const overrides = {
       height: "auto",
-      width: 285,
+      width: 265,
       id: "bottlecap-list-app",
       template: "modules/bottlecap/templates/bottlecap-list.hbs",
       title: game.i18n.localize("BC.bottleCapList.title"),
@@ -88,11 +88,25 @@ export default class BottleCapList extends Application {
     config.render(true);
   }
 
-  async openDeleteDialog(capId) {
-    const confirmed = await Dialog.confirm({
-      title: game.i18n.localize("BC.confirmDelete.title"),
-      content: game.i18n.localize("BC.confirmDelete.content"),
+  static openConfirmDialog(Action) {
+    let content = "";
+    content += `<div class="bottlecap-confirm-content">`;
+    content += `  ${game.i18n.localize(`BC.confirm${Action}.content`)}`;
+    content += `</div>`;
+
+    return Dialog.confirm({
+      options: {
+        height: "auto",
+        width: 285,
+        classes: ["dialog", "bottlecap-confirm"],
+      },
+      title: game.i18n.localize(`BC.confirm${Action}.title`),
+      content,
     });
+  }
+
+  async openDeleteDialog(capId) {
+    const confirmed = await BottleCapList.openConfirmDialog("Delete");
     if (confirmed) {
       await BottleCap.deleteBottleCap(this.currentUserId, capId);
       this.render(true);
@@ -100,10 +114,7 @@ export default class BottleCapList extends Application {
   }
 
   async openSpendDialog(capId) {
-    const confirmed = await Dialog.confirm({
-      title: game.i18n.localize("BC.confirmSpend.title"),
-      content: game.i18n.localize("BC.confirmSpend.content"),
-    });
+    const confirmed = await BottleCapList.openConfirmDialog("Spend");
     if (confirmed) {
       await BottleCap.spendBottleCap(this.currentUserId, capId);
       this.render(true);
@@ -111,10 +122,7 @@ export default class BottleCapList extends Application {
   }
 
   async openRevivifyDialog(capId) {
-    const confirmed = await Dialog.confirm({
-      title: game.i18n.localize("BC.confirmRevivify.title"),
-      content: game.i18n.localize("BC.confirmRevivify.content"),
-    });
+    const confirmed = await BottleCapList.openConfirmDialog("Revivify");
     if (confirmed) {
       await BottleCap.revivifyBottleCap(this.currentUserId, capId);
       this.render(true);
