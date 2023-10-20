@@ -30,5 +30,18 @@
   "BC.confirmRevivify.title": "Revivify Bottle Cap?",
 
   "BC.confirmSpend.content": "Are you sure you want to spend this bottle cap?",
-  "BC.confirmSpend.title": "Spend Bottle Cap?"
+  "BC.confirmSpend.title": "Spend Bottle Cap?",
+
+  "BC.settings.defaultContext.defaultValue": "Great Roleplay",
+  "BC.settings.defaultContext.hint": "The typical reason a player earns a bottle cap. Default: 'Great Roleplay'",
+  "BC.settings.defaultContext.name": "Default Context",
+  "BC.settings.defaultImg.hint": "An icon representative of your table's bottle caps.",
+  "BC.settings.defaultImg.name": "Default Icon",
+  "BC.settings.defaultName.defaultValue": "Bottle Cap!",
+  "BC.settings.defaultName.hint": "The name for your table's bottle caps. Default: 'Bottle Cap!'",
+  "BC.settings.defaultName.name": "Default Name",
+  "BC.settings.manageAllPermissions.hint": "Which User Role can manage everybody's bottle caps? Default: 'Trusted Player'",
+  "BC.settings.manageAllPermissions.name": "Manage All Bottle Caps",
+  "BC.settings.manageOwnPermissions.hint": "Which User Role can manage their own bottle caps? Default: 'Player'",
+  "BC.settings.manageOwnPermissions.name": "Manage Own Bottle Caps"
 }

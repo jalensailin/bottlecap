@@ -6,10 +6,11 @@ export default class BottleCap {
   static FLAG = "bottleCapList";
 
   constructor(data = {}) {
-    this.name = data.name || `${game.i18n.localize("BC.bottleCap!")}`;
-    this.img = data.img || `icons/commodities/tech/cog-large-steel-white.webp`;
+    this.name = data.name || game.settings.get(BottleCap.ID, "defaultName");
+    this.img = data.img || game.settings.get(BottleCap.ID, "defaultImg");
+    this.context =
+      data.context || game.settings.get(BottleCap.ID, "defaultContext");
     this.spent = false;
-    this.context = "";
   }
 
   /* Helpers to set and get bottlecaps on specific users */

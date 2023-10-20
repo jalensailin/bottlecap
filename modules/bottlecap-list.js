@@ -36,12 +36,29 @@ export default class BottleCapList extends Application {
   getData(options) {
     const foundryData = super.getData(options);
     const userId = this.currentUserId;
-    const bottleCapFlag = Object.values(BottleCap.getFlag(userId) || {});
-    const bottleCapList = { trove: [], graveyard: [] };
     const userData = game.users.contents.map((u) => ({
       name: u.name,
       id: u.id,
     }));
+
+    // Figure out permissions based on user roles.
+    const manageAllSetting = parseInt(
+      game.settings.get(BottleCap.ID, "manageAllPermissions"),
+    );
+    const manageOwnSetting = parseInt(
+      game.settings.get(BottleCap.ID, "manageOwnPermissions"),
+    );
+    const userRole = game.user.role;
+    const userCanManageAll = userRole >= manageAllSetting;
+    const userCanManageOwn = userRole >= manageOwnSetting;
+    // Can the user manage the currently displayed list of bottle caps?
+    const userCanManageCurrent =
+      userCanManageAll ||
+      (userCanManageOwn && game.user.id === this.currentUserId);
+
+    // Prepare list of bottle caps for display.
+    const bottleCapFlag = Object.values(BottleCap.getFlag(userId) || {});
+    const bottleCapList = { trove: [], graveyard: [] };
     bottleCapFlag.forEach((bc) => {
       if (!bc.spent) {
         bottleCapList.trove.push(bc);
@@ -54,6 +71,7 @@ export default class BottleCapList extends Application {
       bottleCapList,
       userData,
       currentUserId: userId,
+      userCanManageCurrent,
     };
   }
 

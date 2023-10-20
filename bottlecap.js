@@ -2,9 +2,14 @@
 
 import BottleCap from "./modules/bottlecap.js";
 import BottleCapList from "./modules/bottlecap-list.js";
+import registerSettings from "./modules/settings.js";
 
 Hooks.once("init", () => {
   game.bottlecap = BottleCap;
+});
+
+Hooks.once("i18nInit", () => {
+  registerSettings();
 });
 
 Hooks.on("renderPlayerList", (playerList) => {
