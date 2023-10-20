@@ -38,9 +38,11 @@
             </div>
           </div>
           <div class="bottlecap-action-list">
-            {{#if ../userCanManageCurrent}}
+            {{#if (bcCompare ../userIsCurrent "||" ../userCanManageCurrent)}}
               <a class="bottlecap-action" data-action="spend" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.spend"><i class="fas fa-dice-d20"></i></a>&nbsp;
               <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
+            {{/if}}
+            {{#if ../userCanManageCurrent}}
               <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
             {{/if}}
           </div>
@@ -82,7 +84,11 @@
           <div class="bottlecap-action-list">
             {{#if ../userCanManageCurrent}}
               <a class="bottlecap-action" data-action="revivify" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.revivify"><i class="fas fa-rotate-left"></i></a>&nbsp;
+            {{/if}}
+            {{#if (bcCompare ../userIsCurrent "||" ../userCanManageCurrent)}}
               <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
+            {{/if}}
+            {{#if ../userCanManageCurrent}}
               <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
             {{/if}}
           </div>

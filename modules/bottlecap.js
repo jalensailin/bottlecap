@@ -6,6 +6,7 @@ export default class BottleCap {
   static FLAG = "bottleCapList";
 
   constructor(data = {}) {
+    // Here we set the default bottlecap options.
     this.name = data.name || game.settings.get(BottleCap.ID, "defaultName");
     this.img = data.img || game.settings.get(BottleCap.ID, "defaultImg");
     this.context =

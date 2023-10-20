@@ -38,18 +38,6 @@ const registerSettings = () => {
   });
 
   // User Role Permissions
-  game.settings.register(BottleCap.ID, "manageAllPermissions", {
-    name: "BC.settings.manageAllPermissions.name", // can also be an i18n key
-    hint: "BC.settings.manageAllPermissions.hint", // can also be an i18n key
-    scope: "world", // "world" = sync to db, "client" = local storage
-    config: true, // false if you dont want it to show in module config
-    type: String, // Number, Boolean, String, or even a custom class or DataModel
-    choices: CONST.USER_ROLE_NAMES,
-    default: "2",
-    requiresReload: false, // when changing the setting, prompt the user to reload
-  });
-
-  // User Role Permissions
   game.settings.register(BottleCap.ID, "manageOwnPermissions", {
     name: "BC.settings.manageOwnPermissions.name", // can also be an i18n key
     hint: "BC.settings.manageOwnPermissions.hint", // can also be an i18n key

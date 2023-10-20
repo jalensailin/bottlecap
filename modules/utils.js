@@ -4,6 +4,7 @@ import BottleCap from "./bottlecap.js";
 
 export default class BCUtils {
   /**
+   * Generate a tooltip for display of all users' bottle cap totals.
    *
    * @param {Boolean} spent - whether or not to return a list of spent tokens
    * @returns {String} - the tooltip html string.

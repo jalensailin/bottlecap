@@ -43,19 +43,16 @@ export default class BottleCapList extends Application {
     }));
 
     // Figure out permissions based on user roles.
-    const manageAllSetting = parseInt(
-      game.settings.get(BottleCap.ID, "manageAllPermissions"),
-    );
     const manageOwnSetting = parseInt(
       game.settings.get(BottleCap.ID, "manageOwnPermissions"),
     );
+
+    const userIsCurrent = game.user.id === this.currentUserId; // Is the user currently viewing their own caps?
     const userRole = game.user.role;
-    const userCanManageAll = userRole >= manageAllSetting;
     const userCanManageOwn = userRole >= manageOwnSetting;
     // Can the user manage the currently displayed list of bottle caps?
     const userCanManageCurrent =
-      userCanManageAll ||
-      (userCanManageOwn && game.user.id === this.currentUserId);
+      game.user.isGM || (userCanManageOwn && userIsCurrent);
 
     // Prepare list of bottle caps for display.
     const bottleCapFlag = Object.values(BottleCap.getFlag(userId) || {});
@@ -75,6 +72,7 @@ export default class BottleCapList extends Application {
       bottleCapList,
       userData,
       currentUserId: userId,
+      userIsCurrent,
       userCanManageCurrent,
       toolTipCurrent,
       toolTipSpent,

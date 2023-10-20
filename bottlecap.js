@@ -1,4 +1,4 @@
-/* global Hooks game */
+/* global Hooks game Handlebars */
 
 import BottleCap from "./modules/bottlecap.js";
 import BottleCapList from "./modules/bottlecap-list.js";
@@ -7,6 +7,34 @@ import BCUtils from "./modules/utils.js";
 
 Hooks.once("init", () => {
   game.bottlecap = BottleCap;
+
+  /**
+   * Run a comparison given a stringified operator and 2 operands. Returns true or false.
+   */
+  Handlebars.registerHelper("bcCompare", (v1, operator, v2) => {
+    switch (operator) {
+      case "==":
+        return v1 == v2; // eslint-disable-line eqeqeq
+      case "===":
+        return v1 === v2;
+      case "!==":
+        return v1 !== v2;
+      case "<":
+        return v1 < v2;
+      case "<=":
+        return v1 <= v2;
+      case ">":
+        return v1 > v2;
+      case ">=":
+        return v1 >= v2;
+      case "&&":
+        return v1 && v2;
+      case "||":
+        return v1 || v2;
+      default:
+        return false;
+    }
+  });
 });
 
 Hooks.once("i18nInit", () => {
