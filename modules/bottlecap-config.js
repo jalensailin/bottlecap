@@ -2,10 +2,10 @@
 import BottleCap from "./bottlecap.js";
 
 export default class BottleCapConfig extends FormApplication {
-  constructor(object, currentUser, options) {
+  constructor(object, currentUserId, options) {
     super(object, options);
     this.isCreationDialog = options.isCreationDialog;
-    this.currentUser = currentUser;
+    this.currentUserId = currentUserId;
 
     // Change title if this is a creation dialog.
     if (this.isCreationDialog)
@@ -40,7 +40,7 @@ export default class BottleCapConfig extends FormApplication {
       id: u.id,
     }));
     const { isCreationDialog } = this; // The .hbs template displays different verbiage for a creation dialog vs. an edit dialog.
-    const currentUser = game.users.get(this.currentUser);
+    const currentUser = game.users.get(this.currentUserId);
     return {
       ...foundryData,
       ...this.object,
