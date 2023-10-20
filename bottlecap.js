@@ -3,6 +3,7 @@
 import BottleCap from "./modules/bottlecap.js";
 import BottleCapList from "./modules/bottlecap-list.js";
 import registerSettings from "./modules/settings.js";
+import BCUtils from "./modules/utils.js";
 
 Hooks.once("init", () => {
   game.bottlecap = BottleCap;
@@ -18,8 +19,10 @@ Hooks.on("renderPlayerList", (playerList) => {
   const allBottleCaps = Object.values(BottleCap.getFlag(game.user.id) || {});
   const bottleCapNumber = allBottleCaps.filter((bc) => !bc.spent).length;
 
+  const toolTip = BCUtils.generateToolTip();
+
   let buttonHTML = "";
-  buttonHTML += `<button type='button' class='flex1 bottlecap-button'>`;
+  buttonHTML += `<button type="button" class="flex1 bottlecap-button" data-tooltip="${toolTip}" data-tooltip-direction="UP">`;
   buttonHTML += `  <div class="bottlecap-number">${bottleCapNumber}</div>`;
   buttonHTML += `  <img src="modules/bottlecap/assets/bottlecap-draft-3.svg">`;
   buttonHTML += `</button>`;

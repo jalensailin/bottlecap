@@ -1,6 +1,7 @@
 /* global game mergeObject Application Dialog */
 import BottleCap from "./bottlecap.js";
 import BottleCapConfig from "./bottlecap-config.js";
+import BCUtils from "./utils.js";
 
 export default class BottleCapList extends Application {
   constructor(options) {
@@ -66,12 +67,17 @@ export default class BottleCapList extends Application {
         bottleCapList.graveyard.push(bc);
       }
     });
+
+    const toolTipCurrent = BCUtils.generateToolTip();
+    const toolTipSpent = BCUtils.generateToolTip(true);
     return {
       ...foundryData,
       bottleCapList,
       userData,
       currentUserId: userId,
       userCanManageCurrent,
+      toolTipCurrent,
+      toolTipSpent,
     };
   }
 

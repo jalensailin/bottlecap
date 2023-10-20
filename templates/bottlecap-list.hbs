@@ -7,7 +7,7 @@
   <section class="bottlecap-list-container">
     <ol class="tab bottlecap-list" data-tab="trove">
       <li class="bottlecap-list-header flexrow">
-        <div class="bottlecap-total">
+        <div class="bottlecap-total" data-tooltip="{{toolTipCurrent}}" data-tooltip-direction="UP">
           x{{bottleCapList.trove.length}}
         </div>
         <div class="bottlecap-select-player-container">
@@ -53,7 +53,7 @@
     </ol>
     <ol class="tab bottlecap-list" data-tab="graveyard">
       <li class="bottlecap-list-header flexrow">
-        <div class="bottlecap-total">
+        <div class="bottlecap-total" data-tooltip="{{toolTipSpent}}" data-tooltip-direction="UP">
           x{{bottleCapList.graveyard.length}}
         </div>
         <div class="bottlecap-select-player-container">

@@ -7,6 +7,8 @@
   "BC.bottleCapList.tabs.current": "Current Caps",
   "BC.bottleCapList.tabs.graveyard": "Spent Caps",
   "BC.bottleCapList.title": "Bottle Cap Jawn",
+  "BC.bottleCapList.tooltip.current": "Current Caps",
+  "BC.bottleCapList.tooltip.spent": "Spent Caps",
 
   "BC.config.button.give": "Give Bottle Cap",
   "BC.config.button.update": "Update Bottle Cap",
