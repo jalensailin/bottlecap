@@ -23,7 +23,7 @@ export default class BottleCapList extends Application {
         {
           navSelector: ".bottlecap-tabs",
           contentSelector: ".bottlecap-list-container",
-          initial: "active",
+          initial: "trove",
         },
       ],
     };
@@ -37,14 +37,14 @@ export default class BottleCapList extends Application {
     const foundryData = super.getData(options);
     const userId = this.currentUserId;
     const bottleCapFlag = Object.values(BottleCap.getFlag(userId) || {});
-    const bottleCapList = { active: [], graveyard: [] };
+    const bottleCapList = { trove: [], graveyard: [] };
     const userData = game.users.contents.map((u) => ({
       name: u.name,
       id: u.id,
     }));
     bottleCapFlag.forEach((bc) => {
       if (!bc.spent) {
-        bottleCapList.active.push(bc);
+        bottleCapList.trove.push(bc);
       } else {
         bottleCapList.graveyard.push(bc);
       }

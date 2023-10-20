@@ -1,14 +1,14 @@
 <form class="bottlecap-form">
     {{!-- Sheet Tab Navigation --}}
   <nav class="bottlecap-tabs tabs" data-group="primary">
-    <a data-tab="active"><div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.current"}} <i class="fas fa-hand-spock"></i></div></a>
+    <a data-tab="trove"><div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.current"}} <i class="fas fa-hand-spock"></i></div></a>
     <a data-tab="graveyard"><div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.graveyard"}} <i class="fa-solid fa-champagne-glasses"></i><i class="fas fa-ghost"></i></div></a>
   </nav>
   <section class="bottlecap-list-container">
-    <ol class="tab bottlecap-list" data-tab="active">
+    <ol class="tab bottlecap-list" data-tab="trove">
       <li class="bottlecap-list-header flexrow">
         <div class="bottlecap-action-list bottlecap-create">
-          x{{bottleCapList.active.length}}
+          x{{bottleCapList.trove.length}}
           <a class="bottlecap-action" data-action="create" data-tooltip="BC.config.tooltip.create"><i class="fas fa-plus"></i></a>
         </div>
         <div class="bottlecap-select-player-container">
@@ -23,7 +23,7 @@
         </div>
         <div class="bottlecap-delete-label">Actions</div>
       </li>
-      {{#each bottleCapList.active as |cap|}}
+      {{#each bottleCapList.trove as |cap|}}
         <li class="bottlecap-list-item flexrow">
           <img class="bottlecap-thumb" src="{{cap.img}}">
           <div class="bottlecap-name flexcol">
