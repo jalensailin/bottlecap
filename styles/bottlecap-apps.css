@@ -98,7 +98,7 @@
 .bottlecap-list-header {
   align-items: center;
   background-color: var(--bottlecap-darkblue);
-  padding: 0.3rem 0 0.3rem 0.3rem;
+  padding: 0.3rem;
 }
 
 .bottlecap-list-header select {
@@ -116,7 +116,7 @@
 .bottlecap-settings-item {
   align-items: center;
   background-color: var(--bottlecap-blue);
-  padding: 0.3rem 0 0.3rem 0.3rem;
+  padding: 0.3rem;
 }
 
 .bottlecap-list-item:nth-child(even),
@@ -135,6 +135,7 @@
 .bottlecap-settings-item > .bottlecap-filepicker {
   color: inherit;
   flex: 3;
+  align-items: center;
 }
 
 .bottlecap-settings-item > .bottlecap-filepicker > * {
@@ -146,8 +147,17 @@
   background-color: var(--bottlecap-lightblue);
 }
 
+.bottlecap-static-user {
+  text-align: right;
+  padding: 0 0.3rem 0 0;
+}
+
 .bottlecap-settings-item > input::placeholder {
   color: var(--bottlecap-placeholder-gray);
+}
+
+.bottlecap-settings-label {
+  padding: 0 0.3rem 0 0;
 }
 
 .bottlecap-list-item > img {
@@ -188,7 +198,6 @@
 }
 
 .bottlecap-action-list {
-  padding: 0 0.3rem 0 0;
   text-align: center;
 }
 
