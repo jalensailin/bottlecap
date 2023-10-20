@@ -13,7 +13,7 @@
         </div>
         <div class="bottlecap-select-player-container">
           {{localize "BC.bottleCapList.player"}}:
-          {{#select currentUser}}
+          {{#select currentUserId}}
             <select class="bottlecap-select-player">
               {{#each userData as |user|}}
                 <option value="{{user.id}}">{{user.name}}</option>
@@ -53,7 +53,7 @@
         </div>
         <div class="bottlecap-select-player-container">
           {{localize "BC.bottleCapList.player"}}:
-          {{#select currentUser}}
+          {{#select currentUserId}}
             <select class="bottlecap-select-player">
               {{#each userData as |user|}}
                 <option value="{{user.id}}">{{user.name}}</option>
