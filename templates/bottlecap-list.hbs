@@ -7,9 +7,8 @@
   <section class="bottlecap-list-container">
     <ol class="tab bottlecap-list" data-tab="trove">
       <li class="bottlecap-list-header flexrow">
-        <div class="bottlecap-action-list bottlecap-create">
+        <div class="bottlecap-total">
           x{{bottleCapList.trove.length}}
-          <a class="bottlecap-action" data-action="create" data-tooltip="BC.config.tooltip.create"><i class="fas fa-plus"></i></a>
         </div>
         <div class="bottlecap-select-player-container">
           {{localize "BC.bottleCapList.player"}}:
@@ -21,7 +20,9 @@
             </select>
           {{/select}}
         </div>
-        <div class="bottlecap-delete-label">Actions</div>
+        <div class="bottlecap-action-list bottlecap-create">
+          <a class="bottlecap-action" data-action="create" data-tooltip="BC.config.tooltip.create"><i class="fas fa-plus"></i></a>
+        </div>
       </li>
       {{#each bottleCapList.trove as |cap|}}
         <li class="bottlecap-list-item flexrow">
@@ -48,7 +49,7 @@
     </ol>
     <ol class="tab bottlecap-list" data-tab="graveyard">
       <li class="bottlecap-list-header flexrow">
-        <div class="bottlecap-action-list bottlecap-create">
+        <div class="bottlecap-total">
           x{{bottleCapList.graveyard.length}}
         </div>
         <div class="bottlecap-select-player-container">
@@ -61,7 +62,7 @@
             </select>
           {{/select}}
         </div>
-        <div class="bottlecap-delete-label">Actions</div>
+        <div class="bottlecap-action-list"></div>
       </li>
       {{#each bottleCapList.graveyard as |cap|}}
         <li class="bottlecap-list-item flexrow">

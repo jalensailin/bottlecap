@@ -2,7 +2,6 @@
 :root {
   /* Text/icon/input colors */
   --bottlecap-text-white: rgba(255, 255, 255, 0.9);
-  --bottlecap-trash-red: rgb(146, 37, 37);
   --bottlecap-red: #bb2345;
   --bottlecap-context-gray: rgba(255, 255, 255, 0.719);
   --bottlecap-placeholder-gray: rgba(255, 255, 255, 0.6);
@@ -156,12 +155,13 @@
   width: 36px;
 }
 
-.bottlecap-create,
+.bottlecap-total,
 .bottlecap-thumb {
   flex: 0 0 36px;
 }
 
-.bottlecap-create {
+.bottlecap-total {
+  font-size: var(--font-size-16);
   text-align: center;
 }
 
@@ -187,10 +187,14 @@
   text-decoration: line-through;
 }
 
+.bottlecap-action-list {
+  padding: 0 0.3rem 0 0;
+  text-align: center;
+}
+
 .bottlecap-delete-label,
 .bottlecap-action[data-action="delete"] {
   flex: 1;
-  padding: 0 0.3rem 0 0;
   text-align: center;
 }
 
