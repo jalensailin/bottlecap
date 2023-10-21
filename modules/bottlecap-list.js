@@ -88,6 +88,11 @@ export default class BottleCapList extends Application {
       this[`open${Action}Dialog`](capId);
     });
 
+    html.on("click", ".bottlecap-reset-user", () => {
+      this.currentUserId = game.user.id;
+      this.render(true);
+    });
+
     html.on("change", ".bottlecap-select-player", (event) => {
       this.currentUserId = event.currentTarget.value;
       this.render(true);

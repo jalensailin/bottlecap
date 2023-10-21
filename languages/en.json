@@ -24,6 +24,7 @@
   "BC.config.tooltip.create": "Create Bottle Cap",
   "BC.config.tooltip.delete": "Delete Bottle Cap",
   "BC.config.tooltip.edit": "Edit Bottle Cap",
+  "BC.config.tooltip.resetUser": "Set player to self",
   "BC.config.tooltip.revivify": "Revivify Bottle Cap",
   "BC.config.tooltip.spend": "Spend Bottle Cap",
   "BC.config.user": "User",
@@ -38,7 +39,7 @@
   "BC.confirmSpend.title": "Spend Bottle Cap?",
 
   "BC.settings.chatMessageCapName.defaultValue": "a bottle cap",
-  "BC.settings.chatMessageCapName.hint": "What to call a bottle cap in the chat message. Default: 'bottle cap'",
+  "BC.settings.chatMessageCapName.hint": "What to call a bottle cap in the chat message. Default: 'a bottle cap'",
   "BC.settings.chatMessageCapName.name": "Cap Name in Chat Message",
   "BC.settings.defaultContext.defaultValue": "Great Roleplay",
   "BC.settings.defaultContext.hint": "The typical reason a player earns a bottle cap. Default: 'Great Roleplay'",
