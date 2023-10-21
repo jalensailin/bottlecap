@@ -38,13 +38,21 @@ const registerSettings = () => {
   });
 
   // User Role Permissions
+  const localizedRoleNames = {
+    // Localize the role names. If this object already exists in Foundry, I coudln't find it.
+    0: game.i18n.localize("USER.RoleNone"),
+    1: game.i18n.localize("USER.RolePlayer"),
+    2: game.i18n.localize("USER.RoleTrusted"),
+    3: game.i18n.localize("USER.RoleAssistant"),
+    4: game.i18n.localize("USER.RoleGamemaster"),
+  };
   game.settings.register(BottleCap.ID, "manageOwnPermissions", {
     name: "BC.settings.manageOwnPermissions.name", // can also be an i18n key
     hint: "BC.settings.manageOwnPermissions.hint", // can also be an i18n key
     scope: "world", // "world" = sync to db, "client" = local storage
     config: true, // false if you dont want it to show in module config
     type: String, // Number, Boolean, String, or even a custom class or DataModel
-    choices: CONST.USER_ROLE_NAMES,
+    choices: localizedRoleNames,
     default: "1",
     requiresReload: false, // when changing the setting, prompt the user to reload
   });
