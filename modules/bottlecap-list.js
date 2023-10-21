@@ -14,7 +14,7 @@ export default class BottleCapList extends Application {
 
     const overrides = {
       height: "auto",
-      width: 265,
+      width: 285,
       id: "bottlecap-list-app",
       template: "modules/bottlecap/templates/bottlecap-list.hbs",
       title: game.i18n.localize("BC.bottleCapList.title"),
