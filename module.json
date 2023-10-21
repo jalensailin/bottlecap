@@ -25,5 +25,7 @@
     "styles/bottlecap-button.css",
     "styles/bottlecap-apps.css",
     "styles/bottlecap-chat-message.css"
-  ]
+  ],
+  "manifest": "https://raw.githubusercontent.com/jalensailin/bottlecap/main/module.json",
+  "download": "https://github.com/jalensailin/bottlecap/archive/v0.1.0.zip"
 }
