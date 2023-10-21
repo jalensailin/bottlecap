@@ -21,5 +21,9 @@
     }
   ],
   "esmodules": ["bottlecap.js"],
-  "styles": ["styles/bottlecap-button.css", "styles/bottlecap-apps.css"]
+  "styles": [
+    "styles/bottlecap-button.css",
+    "styles/bottlecap-apps.css",
+    "styles/bottlecap-chat-message.css"
+  ]
 }

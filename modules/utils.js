@@ -1,4 +1,4 @@
-/* global game */
+/* global game ChatMessage renderTemplate */
 
 import BottleCap from "./bottlecap.js";
 
@@ -26,5 +26,40 @@ export default class BCUtils {
     });
 
     return toolTip;
+  }
+
+  /**
+   * Get data to log a chat message when a cap is received/spent.
+   *
+   * @param {String} userId
+   * @param {String} capId
+   * @param {Boolean} spent - whether or not this message is for a spent cap or not
+   * @return {ChatMessage}
+   */
+  static async createChatMessage(userId, capId, spent = true) {
+    const cap = BottleCap.getFlag(userId)[capId];
+    const user = game.users.get(userId).name;
+
+    // Prepare header string
+    const spentOrReceived = spent ? "spent" : "received";
+    const bottleCapString = game.settings.get(
+      BottleCap.ID,
+      "chatMessageCapName",
+    );
+    const header = game.i18n.format(
+      `BC.chatMessage.header.${spentOrReceived}`,
+      {
+        user,
+        aBottleCap: bottleCapString,
+      },
+    );
+    const content = await renderTemplate(
+      `modules/${BottleCap.ID}/templates/chat-message.hbs`,
+      { cap, header },
+    );
+
+    return ChatMessage.create({
+      content,
+    });
   }
 }

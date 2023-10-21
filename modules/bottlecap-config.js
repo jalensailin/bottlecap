@@ -1,5 +1,6 @@
 /* global FormApplication game mergeObject ui */
 import BottleCap from "./bottlecap.js";
+import BCUtils from "./utils.js";
 
 export default class BottleCapConfig extends FormApplication {
   constructor(object, currentUserId, options) {
@@ -63,7 +64,8 @@ export default class BottleCapConfig extends FormApplication {
     const newData = mergeObject(this.object, formData);
 
     if (this.isCreationDialog) {
-      await BottleCap.createBottleCap(newData.user, newData);
+      const newCap = await BottleCap.createBottleCap(newData.user, newData);
+      BCUtils.createChatMessage(newCap.user, newCap.id, false);
     } else {
       await BottleCap.updateBottleCap(newData.user, newData);
     }

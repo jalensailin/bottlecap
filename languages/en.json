@@ -10,6 +10,9 @@
   "BC.bottleCapList.tooltip.current": "Current Caps",
   "BC.bottleCapList.tooltip.spent": "Spent Caps",
 
+  "BC.chatMessage.header.received": "{user} received {aBottleCap}!",
+  "BC.chatMessage.header.spent": "{user} spent {aBottleCap}!",
+
   "BC.config.button.give": "Give Bottle Cap",
   "BC.config.button.update": "Update Bottle Cap",
   "BC.config.context": "Context",
@@ -34,6 +37,9 @@
   "BC.confirmSpend.content": "Are you sure you want to spend this bottle cap?",
   "BC.confirmSpend.title": "Spend Bottle Cap?",
 
+  "BC.settings.chatMessageCapName.defaultValue": "a bottle cap",
+  "BC.settings.chatMessageCapName.hint": "What to call a bottle cap in the chat message. Default: 'bottle cap'",
+  "BC.settings.chatMessageCapName.name": "Cap Name in Chat Message",
   "BC.settings.defaultContext.defaultValue": "Great Roleplay",
   "BC.settings.defaultContext.hint": "The typical reason a player earns a bottle cap. Default: 'Great Roleplay'",
   "BC.settings.defaultContext.name": "Default Context",

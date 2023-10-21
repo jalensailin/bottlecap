@@ -48,6 +48,17 @@ const registerSettings = () => {
     default: "1",
     requiresReload: false, // when changing the setting, prompt the user to reload
   });
+
+  // Default Context
+  game.settings.register(BottleCap.ID, "chatMessageCapName", {
+    name: "BC.settings.chatMessageCapName.name", // can also be an i18n key
+    hint: "BC.settings.chatMessageCapName.hint", // can also be an i18n key
+    scope: "world", // "world" = sync to db, "client" = local storage
+    config: true, // false if you dont want it to show in module config
+    type: String, // Number, Boolean, String, or even a custom class or DataModel
+    default: game.i18n.localize("BC.settings.chatMessageCapName.defaultValue"),
+    requiresReload: false, // when changing the setting, prompt the user to reload
+  });
 };
 
 export default registerSettings;

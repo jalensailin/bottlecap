@@ -6,7 +6,7 @@ export default class BottleCap {
   static FLAG = "bottleCapList";
 
   constructor(data = {}) {
-    // Here we set the default bottlecap options.
+    // Here we set the default bottlecap options. See `createBottleCap` below.
     this.name = data.name || game.settings.get(BottleCap.ID, "defaultName");
     this.img = data.img || game.settings.get(BottleCap.ID, "defaultImg");
     this.context =
@@ -26,7 +26,18 @@ export default class BottleCap {
   }
 
   /* CRUD Methods */
-  static createBottleCap(userId, data) {
+
+  /**
+   *
+   * @param {String} userId - ID of the user to create the cap on.
+   * @param {Object} [data] - data with which to create the cap.
+   * @param {String} [data.name] - name of the cap.
+   * @param {String} [data.img] - icon for the cap.
+   * @param {String} [data.context] - What earned the user this cap.
+   * @param {String} [data.spent=false] - whether or not this cap has been spent.
+   * @returns
+   */
+  static async createBottleCap(userId, data) {
     const baseObject = {
       ...data,
       id: randomID(),
@@ -36,7 +47,8 @@ export default class BottleCap {
       [baseObject.id]: baseObject,
     };
 
-    return BottleCap.setFlag(userId, newBottleCap);
+    await BottleCap.setFlag(userId, newBottleCap);
+    return baseObject;
   }
 
   static updateBottleCap(userId, data = {}) {

@@ -138,6 +138,8 @@ export default class BottleCapList extends Application {
   async openSpendDialog(capId) {
     const confirmed = await BottleCapList.openConfirmDialog("Spend");
     if (confirmed) {
+      BCUtils.createChatMessage(this.currentUserId, capId);
+
       await BottleCap.spendBottleCap(this.currentUserId, capId);
       this.render(true);
     }
