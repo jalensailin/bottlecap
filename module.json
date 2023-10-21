@@ -1,14 +1,14 @@
 {
   "id": "bottlecap",
   "title": "Bottle Cap!",
-  "description": "Keep track of special tokens that you give to your players!",
+  "description": "Inspired by the Glass Cannon Network. Keep track of special tokens that you give to your players!",
   "authors": [
     {
       "name": "Jalen Michals Levy",
       "discord": "jalensailin"
     }
   ],
-  "version": "0.1.0",
+  "version": "This value will be replaced on release",
   "compatibility": {
     "minimum": "11",
     "verified": "11"
@@ -26,6 +26,9 @@
     "styles/bottlecap-apps.css",
     "styles/bottlecap-chat-message.css"
   ],
-  "manifest": "https://raw.githubusercontent.com/jalensailin/bottlecap/main/module.json",
-  "download": "https://github.com/jalensailin/bottlecap/archive/v0.1.0.zip"
+  "url": "https://github.com/jalensailin/bottlecap",
+  "bugs": "https://github.com/jalensailin/bottlecap/issues",
+  "changelog": "This value will be replaced on release",
+  "manifest": "This value will be replaced on release",
+  "download": "This value will be replaced on release"
 }
