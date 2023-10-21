@@ -1,0 +1,49 @@
+# This is a basic workflow that is manually triggered
+name: Package Release
+
+# Controls when the action will run. Workflow runs when release is published.
+on:
+  release:
+    types: [published]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called packageRelease
+  packageRelease:
+    # The type of runner that the job will run on. This must be ubuntu for the zip command to work.
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Each step runs a single command using the runners shell.
+      # 1. Checkout our repository so we can do things on it.
+      - name: Checkout
+        uses: actions/checkout@v4
+      # 2. Get the version number without the leading -v.
+      - name: Get Version
+        id: get_version
+        uses: dhkatz/get-version-action@v3.0.0
+      # 3. Substitute the Manifest and Download URLs in the module.json
+      - name: Substitute Manifest, Download and Changelog Links For Versioned Ones
+        uses: TomaszKandula/variable-substitution@v1.0.1
+        with:
+          files: "module.json"
+        env:
+          version: ${{steps.get_version.outputs.version-without-v}}
+          changelog: https://raw.githubusercontent.com/${{github.repository}}/${{github.event.release.tag_name}}/CHANGELOG.md
+          manifest: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.json
+          download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/bottlecap.zip
+      # 4. Zip up the branch excluding unnecessary files/folders packs.
+      - name: Zip
+        # Exclude the npm files from the final package, as well as any files/folders beginning with a dot.
+        run: zip -r bottlecap.zip . --exclude=".*" --exclude="package-lock.json" --exclude="package.json"
+      # 5. Updates the release with the newly zipped branch and module.json. See documentation of this action for details.
+      - name: Update Release with Artifacts
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          allowUpdates: true
+          name: ${{ github.event.release.name }}
+          tag: ${{ github.event.release.tag_name }}
+          body: ${{ github.event.release.body }}
+          artifacts: "./bottlecap.zip, ./module.json"
+          token: ${{ secrets.GITHUB_TOKEN }}
