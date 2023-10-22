@@ -48,6 +48,7 @@ export default class BottleCapConfig extends FormApplication {
       userData,
       currentUser,
       isCreationDialog,
+      isGM: game.user.isGM,
     };
   }
 
