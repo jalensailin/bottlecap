@@ -1,4 +1,11 @@
-# 1.0.0
+# Bottle Cap! CHANGELOG
+
+## v1.1.0 - 10-22-2023
+
+- Approved by Foundry
+- Update README with install instructions
+
+## v1.0.0 - 10-21-2023
 
 I am happy to announce the release of Bottle Cap!
 
