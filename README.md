@@ -34,8 +34,16 @@ To spend a bottle cap, click the d20 icon and press "Yes" in the confirmation di
 
 ## To Install
 
+### Via Foundry Interface (recommended)
+
+1. Open up Foundry and navigate to the "Add-on Modules" tab.
+2. Click Install Module.
+3. Search for "Bottle Cap!" and click the install button.
+4. Enable the module in your worlds!
+
 ### Via manifest link
 
 1. Open up Foundry and navigate to the "Add-on Modules" tab.
 2. Click Install Module
-3. Paste the following link <https://raw.githubusercontent.com/jalensailin/bottlecap/main/module.json> into the "Manifest URL" field at the bottom of the window, just to the left of the "Install" button.
+3. Paste the following link <https://github.com/jalensailin/bottlecap/releases/latest/download/module.json> into the "Manifest URL" field at the bottom of the window, just to the left of the "Install" button.
+4. Enable the module in your worlds!
