@@ -1,5 +1,9 @@
 # Bottle Cap! CHANGELOG
 
+## v1.1.1 - 10-27-2023
+
+- Fix rendering issue when a user has double quotes in their name.
+
 ## v1.1.0 - 10-22-2023
 
 - Approved by Foundry
