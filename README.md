@@ -1,6 +1,6 @@
 # Bottle Cap!
 
-<a href='https://ko-fi.com/jalensailin' target='_blank'><img height='35' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' alt='Buy Me a Coffee at ko-fi.com' />
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W3QKE3Q)
 
 ![Supported Foundry Versions](https://img.shields.io/endpoint?url=https%3A%2F%2Ffoundryshields.com%2Fversion%3Fstyle%3Dplastic%26url%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Fjalensailin%2Fbottlecap%2Fmain%2Fmodule.json)
 
