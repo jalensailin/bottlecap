@@ -22,7 +22,8 @@ export default class BCUtils {
       ? `${game.i18n.localize("BC.bottleCapList.tooltip.spent")}<hr/>`
       : `${game.i18n.localize("BC.bottleCapList.tooltip.current")}<hr/>`;
     userList.forEach((user) => {
-      toolTip += `${user.name}: x${user.bottleCapNumber}<br>`;
+      const name = user.name.replace(/"/g, "&quot;"); // Sanitize the user's name of double quotes so the html renders properly.
+      toolTip += `${name}: x${user.bottleCapNumber}<br>`;
     });
 
     return toolTip;
