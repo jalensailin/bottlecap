@@ -1,5 +1,9 @@
 # Bottle Cap! CHANGELOG
 
+## v1.1.2 - 10-27-2023
+
+- Tested in v10 and everything seemed to work. Module now listed as compatible with v10.
+
 ## v1.1.1 - 10-27-2023
 
 - Fix rendering issue when a user has double quotes in their name.
