@@ -49,3 +49,8 @@ To spend a bottle cap, click the d20 icon and press "Yes" in the confirmation di
 2. Click Install Module
 3. Paste the following link <https://github.com/jalensailin/bottlecap/releases/latest/download/module.json> into the "Manifest URL" field at the bottom of the window, just to the left of the "Install" button.
 4. Enable the module in your worlds!
+
+## Acknowledgements
+
+- Thank you to Sam Jenny, my wonderful long-time housemate, for the default bottle cap icon!
+- Thank you to the Glass Cannon Network for many hours of entertainment and inspiration.

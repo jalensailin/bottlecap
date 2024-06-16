@@ -19,9 +19,9 @@ const registerSettings = () => {
     name: "BC.settings.defaultImg.name", // can also be an i18n key
     hint: "BC.settings.defaultImg.hint", // can also be an i18n key
     scope: "world", // "world" = sync to db, "client" = local storage
-    config: true, // false if you dont want it to show in module config
+    config: true, // false if you dont want it to show in module c  onfig
     type: String, // Number, Boolean, String, or even a custom class or DataModel
-    default: "icons/commodities/tech/cog-large-steel-white.webp",
+    default: "modules/bottlecap/assets/bottlecap-icon-log.webp",
     filePicker: true, // set true with a String `type` to use a file picker input,
     requiresReload: false, // when changing the setting, prompt the user to reload
   });
