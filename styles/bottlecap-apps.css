@@ -76,7 +76,7 @@
 
 .bottlecap-tabs > a.active {
   background-color: var(--bottlecap-darkgreen);
-  text-shadow: 0 0 6px var(--bottlecap-lightgreen);
+  text-shadow: 0 0 6px var(--bottlecap-lightgreen) !important;
 }
 
 .bottlecap-tabs > a > .bottlecap-tab-text {
@@ -139,16 +139,11 @@
   border-bottom-right-radius: inherit;
 }
 
-.bottlecap-settings-item > input,
-.bottlecap-settings-item > select,
-.bottlecap-settings-item > .bottlecap-filepicker {
+.bottlecap-settings-item input,
+.bottlecap-settings-item select,
+.bottlecap-settings-item .bottlecap-filepicker {
   color: inherit;
   flex: 3;
-  align-items: center;
-}
-
-.bottlecap-settings-item > .bottlecap-filepicker > * {
-  color: inherit;
 }
 
 .bottlecap-settings-item > select option {
