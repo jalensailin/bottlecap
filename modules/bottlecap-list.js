@@ -1,4 +1,4 @@
-/* global game mergeObject Application Dialog */
+/* global game foundry Application Dialog */
 import BottleCap from "./bottlecap.js";
 import BottleCapConfig from "./bottlecap-config.js";
 import BCUtils from "./utils.js";
@@ -29,7 +29,7 @@ export default class BottleCapList extends Application {
       ],
     };
 
-    const mergedOptions = mergeObject(defaults, overrides);
+    const mergedOptions = foundry.utils.mergeObject(defaults, overrides);
 
     return mergedOptions;
   }

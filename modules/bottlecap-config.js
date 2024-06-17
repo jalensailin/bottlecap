@@ -1,4 +1,4 @@
-/* global FormApplication game mergeObject ui */
+/* global FormApplication game ui foundry */
 import BottleCap from "./bottlecap.js";
 import BCUtils from "./utils.js";
 
@@ -30,7 +30,7 @@ export default class BottleCapConfig extends FormApplication {
       resizable: true,
     };
 
-    const mergedOptions = mergeObject(defaults, overrides);
+    const mergedOptions = foundry.utils.mergeObject(defaults, overrides);
     return mergedOptions;
   }
 
@@ -62,7 +62,7 @@ export default class BottleCapConfig extends FormApplication {
   }
 
   async _updateObject(event, formData) {
-    const newData = mergeObject(this.object, formData);
+    const newData = foundry.utils.mergeObject(this.object, formData);
 
     if (this.isCreationDialog) {
       const newCap = await BottleCap.createBottleCap(newData.user, newData);
