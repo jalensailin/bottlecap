@@ -1,4 +1,4 @@
-/* global game randomID */
+/* global game foundry */
 
 export default class BottleCap {
   static ID = "bottlecap";
@@ -40,7 +40,7 @@ export default class BottleCap {
   static async createBottleCap(userId, data) {
     const baseObject = {
       ...data,
-      id: randomID(),
+      id: foundry.utils.randomID(),
     };
 
     const newBottleCap = {
