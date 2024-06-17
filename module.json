@@ -10,8 +10,9 @@
   ],
   "version": "This value will be replaced on release",
   "compatibility": {
-    "minimum": "10",
-    "verified": "11"
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
   },
   "languages": [
     {
