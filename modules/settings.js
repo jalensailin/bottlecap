@@ -1,6 +1,6 @@
 import BottleCap from "./bottlecap.js";
 
-/* global game CONST */
+/* global game */
 
 const registerSettings = () => {
   // Default Name
