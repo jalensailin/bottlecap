@@ -12,13 +12,9 @@
         </div>
         <div class="bottlecap-select-player-container">
           {{localize "BC.bottleCapList.player"}}:
-          {{#select currentUserId}}
-            <select class="bottlecap-select-player">
-              {{#each userData as |user|}}
-                <option value="{{user.id}}">{{user.name}}</option>
-              {{/each}}
-            </select>
-          {{/select}}
+          <select class="bottlecap-select-player">
+            {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
+          </select>
           <a class="bottlecap-reset-user" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
         </div>
         <div class="bottlecap-action-list bottlecap-create">
@@ -61,13 +57,9 @@
         </div>
         <div class="bottlecap-select-player-container">
           {{localize "BC.bottleCapList.player"}}:
-          {{#select currentUserId}}
-            <select class="bottlecap-select-player">
-              {{#each userData as |user|}}
-                <option value="{{user.id}}">{{user.name}}</option>
-              {{/each}}
-            </select>
-          {{/select}}
+          <select class="bottlecap-select-player">
+            {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
+          </select>
           <a class="bottlecap-reset-user" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
         </div>
         <div class="bottlecap-action-list"></div>

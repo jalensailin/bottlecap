@@ -4,13 +4,9 @@
       <li class="flexrow bottlecap-settings-item">
         <div class="bottlecap-settings-label">{{localize "BC.config.user"}}: </div>
         {{#if isCreationDialog}}
-          {{#select currentUser.id}}
-            <select class="bottlecap-select-user" name="user">
-              {{#each userData as |user|}}
-                <option value="{{user.id}}">{{user.name}}</option>
-              {{/each}}
-            </select>
-          {{/select}}
+          <select class="bottlecap-select-user" name="user">
+            {{selectOptions userData selected=currentUser.id valueAttr="id" labelAttr="name"}}
+          </select>
         {{else}}
           <div class="bottlecap-static-user">{{currentUser.name}}</div>
         {{/if}}
