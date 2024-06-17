@@ -24,14 +24,14 @@ jobs:
         id: get_version
         uses: dhkatz/get-version-action@v3.0.0
       # 3. Substitute the Manifest and Download URLs in the module.json
-      - name: Substitute Manifest, Download and Changelog Links For Versioned Ones
+      - name: Substitute Manifest, Download Links, and Version Number
         uses: TomaszKandula/variable-substitution@v1.0.1
         with:
           files: "module.json"
         env:
           version: ${{steps.get_version.outputs.version-without-v}}
           changelog: https://raw.githubusercontent.com/${{github.repository}}/${{github.event.release.tag_name}}/CHANGELOG.md
-          manifest: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.json
+          manifest: https://github.com/${{github.repository}}/releases/latest/download/module.json
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/bottlecap.zip
       # 4. Zip up the branch excluding unnecessary files/folders packs.
       - name: Zip
