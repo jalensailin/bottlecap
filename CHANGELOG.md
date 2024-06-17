@@ -1,5 +1,9 @@
 # Bottle Cap! CHANGELOG
 
+## v2.0.0 - 06-16-2024
+
+- Now compatible with Foundry v12. No longer compatible with Foundry v10/v11, though releases which _do_ support these versions are still available if you have not yet upgraded.
+
 ## v1.1.3 - 06-16-2024
 
 - Added original default bottlecap icon. Thank you to my housemate Sam Jenny for creating it, and praise log!
