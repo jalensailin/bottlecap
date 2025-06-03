@@ -1,5 +1,3 @@
-/* global game ChatMessage renderTemplate */
-
 import BottleCap from "./bottlecap.js";
 
 export default class BCUtils {
@@ -54,7 +52,7 @@ export default class BCUtils {
         aBottleCap: bottleCapString,
       },
     );
-    const content = await renderTemplate(
+    const content = await foundry.applications.handlebars.renderTemplate(
       `modules/${BottleCap.ID}/templates/chat-message.hbs`,
       { cap, header },
     );
@@ -62,5 +60,26 @@ export default class BCUtils {
     return ChatMessage.create({
       content,
     });
+  }
+
+  /**
+   * Wrapper around document.createElement to easily
+   * create an HTML element with classes.
+   *
+   * Could be extended in the future with more options
+   *
+   * @param {Lowercase<HTMLElement.tagName>} tagName - The tag name to create
+   * @param {Object} options - Optional settings
+   * @param {string[]} [options.classes=[]] - List of classes to add to the element
+   * @param {string} [options.innerHTML] - Inner html to add to the element
+   * @returns
+   */
+  static createElement(tagName, { classes = [], innerHTML } = {}) {
+    const element = document.createElement(tagName);
+    element.classList.add(...classes);
+
+    if (innerHTML) element.innerHTML = innerHTML;
+
+    return element;
   }
 }

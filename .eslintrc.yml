@@ -8,6 +8,8 @@ parserOptions:
 globals:
   CONFIG: readonly
   ChatMessage: readonly
+  Handlebars: readonly
+  Hooks: readonly
   foundry: readonly
   game: readonly
 rules:

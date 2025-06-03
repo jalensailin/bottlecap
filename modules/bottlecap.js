@@ -1,5 +1,3 @@
-/* global game foundry */
-
 export default class BottleCap {
   static ID = "bottlecap";
 
