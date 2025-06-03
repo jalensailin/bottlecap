@@ -5,6 +5,11 @@ extends: ["airbnb-base", "plugin:prettier/recommended"]
 parserOptions:
   ecmaVersion: latest
   sourceType: module
+globals:
+  CONFIG: readonly
+  ChatMessage: readonly
+  foundry: readonly
+  game: readonly
 rules:
   no-await-in-loop:
     - warn

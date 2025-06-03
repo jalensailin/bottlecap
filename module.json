@@ -10,9 +10,9 @@
   ],
   "version": "This value will be replaced on release",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12",
-    "maximum": "12"
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
   },
   "languages": [
     {
@@ -27,6 +27,12 @@
     "styles/bottlecap-apps.css",
     "styles/bottlecap-chat-message.css"
   ],
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "hbs", "json"],
+      "paths": ["styles", "templates", "languages"]
+    }
+  },
   "url": "https://github.com/jalensailin/bottlecap",
   "bugs": "https://github.com/jalensailin/bottlecap/issues",
   "changelog": "This value will be replaced on release",
