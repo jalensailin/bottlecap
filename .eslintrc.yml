@@ -12,6 +12,7 @@ globals:
   Hooks: readonly
   foundry: readonly
   game: readonly
+  ui: readonly
 rules:
   no-await-in-loop:
     - warn

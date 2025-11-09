@@ -1,4 +1,4 @@
-<form class="bottlecap-config">
+<div class="bottlecap-config">
   <ol class="bottlecap-settings-list">
     {{#if isGM}}
       <li class="flexrow bottlecap-settings-item">
@@ -24,14 +24,7 @@
     </li>
     <li class="flexrow bottlecap-settings-item">
       <div class="bottlecap-settings-label">{{localize "BC.config.context"}}: </div>
-      <input type="text" name="context" placeholder="{{localize "BC.config.contextPlaceholder"}}" value="{{context}}" data-dtype="String">
+      <input type="text" name="context" placeholder="{{localize "BC.config.contextPlaceholder"}}" value="{{context}}">
     </li>
   </ol>
-  <button class="bottlecap-create-cap">
-    {{#if isCreationDialog}}
-      {{localize "BC.config.button.give"}}
-    {{else}}
-      {{localize "BC.config.button.update"}}
-    {{/if}}
-  </button>
-</form>
+</div>

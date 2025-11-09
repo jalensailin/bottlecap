@@ -1,7 +1,7 @@
 export default class BottleCap {
-  static ID = "bottlecap";
+  static ID = /** @type {const} */ ("bottlecap");
 
-  static FLAG = "bottleCapList";
+  static FLAG = /** @type {const} */ ("bottleCapList");
 
   constructor(data = {}) {
     // Here we set the default bottlecap options. See `createBottleCap` below.
