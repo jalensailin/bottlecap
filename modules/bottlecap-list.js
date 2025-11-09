@@ -1,41 +1,51 @@
-/* global game foundry Application Dialog */
+/* global Dialog */
 import BottleCap from "./bottlecap.js";
 import BottleCapConfig from "./bottlecap-config.js";
 import BCUtils from "./utils.js";
 
-export default class BottleCapList extends Application {
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+export default class BottleCapList extends HandlebarsApplicationMixin(
+  ApplicationV2,
+) {
   constructor(options) {
     super(options);
     this.currentUserId = game.user.id;
   }
 
-  static get defaultOptions() {
-    const defaults = super.defaultOptions;
-
-    const overrides = {
-      height: "auto",
-      width: 285,
-      id: "bottlecap-list-app",
-      template: "modules/bottlecap/templates/bottlecap-list.hbs",
-      title: game.i18n.localize("BC.bottleCapList.title"),
-      userId: game.userId,
+  /** @inheritdoc */
+  static DEFAULT_OPTIONS = /** @type {const} */ ({
+    id: "bottlecap-list-app",
+    position: { height: "auto", width: 285 },
+    window: {
+      title: "BC.bottleCapList.title",
       resizable: true,
-      tabs: [
-        {
-          navSelector: ".bottlecap-tabs",
-          contentSelector: ".bottlecap-list-container",
-          initial: "trove",
-        },
-      ],
-    };
+    },
+    actions: {
+      bottlecapAction: BottleCapList.bottlecapAction,
+      resetUser: BottleCapList.resetUser,
+    },
+  });
 
-    const mergedOptions = foundry.utils.mergeObject(defaults, overrides);
+  /** @inheritdoc */
+  static PARTS = /** @type {const} */ ({
+    main: {
+      template: `modules/${BottleCap.ID}/templates/bottlecap-list.hbs`,
+    },
+  });
 
-    return mergedOptions;
-  }
+  /** @inheritdoc */
+  static TABS = /** @type {const} */ ({
+    primary: {
+      tabs: [{ id: "trove" }, { id: "graveyard" }],
+      initial: "trove",
+    },
+  });
 
-  getData(options) {
-    const foundryData = super.getData(options);
+  /** @inheritdoc */
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+
     const userId = this.currentUserId;
     const userData = game.users.contents.map((u) => ({
       name: u.name,
@@ -68,7 +78,7 @@ export default class BottleCapList extends Application {
     const toolTipCurrent = BCUtils.generateToolTip();
     const toolTipSpent = BCUtils.generateToolTip(true);
     return {
-      ...foundryData,
+      ...context,
       bottleCapList,
       userData,
       currentUserId: userId,
@@ -79,26 +89,43 @@ export default class BottleCapList extends Application {
     };
   }
 
-  activateListeners(html) {
-    super.activateListeners(html);
+  /** @inheritdoc */
+  async _onRender(context, options) {
+    await super._onRender(context, options);
 
-    html.on("click", ".bottlecap-action", (event) => {
-      const { action, capId } = event.currentTarget.dataset;
-      const Action = action.charAt(0).toUpperCase() + action.slice(1); // Make first letter upperCase
-      this[`open${Action}Dialog`](capId);
-    });
-
-    html.on("click", ".bottlecap-reset-user", () => {
-      this.currentUserId = game.user.id;
-      this.render(true);
-    });
-
-    html.on("change", ".bottlecap-select-player", (event) => {
+    const select = this.element.querySelector(".bottlecap-select-player");
+    select.addEventListener("change", (event) => {
       this.currentUserId = event.currentTarget.value;
       this.render(true);
     });
   }
 
+  /**
+   * Handle opening create/edit dialogs.
+   *
+   * @param {Event} event
+   * @param {HTMLElement} target
+   * @returns
+   */
+  static bottlecapAction(event, target) {
+    const { actionType, capId } = target.dataset;
+    const actionTypeCap = BCUtils.capFirstLetter(actionType);
+    this[`open${actionTypeCap}Dialog`](capId);
+  }
+
+  /**
+   * Resets the currently displayed bottle cap list to the current user's list.
+   */
+  static resetUser() {
+    this.currentUserId = game.user.id;
+    this.render(true);
+  }
+
+  /**
+   * Opens the Bottle Cap config dialog in creation mode.
+   *
+   * This will create a new bottle cap and prompt the user to configure it.
+   */
   openCreateDialog() {
     const newCap = new BottleCap();
     const config = new BottleCapConfig(newCap, this.currentUserId, {
@@ -107,6 +134,13 @@ export default class BottleCapList extends Application {
     config.render(true);
   }
 
+  /**
+   * Opens the Bottle Cap config dialog in edit mode.
+   *
+   * This will open the config dialog with the given bottle cap data pre-populated.
+   *
+   * @param {string} capId - ID of the bottle cap to edit.
+   */
   openEditDialog(capId) {
     const bottleCap = BottleCap.getFlag(this.currentUserId)[capId];
     const config = new BottleCapConfig(bottleCap, this.currentUserId, {
@@ -115,10 +149,10 @@ export default class BottleCapList extends Application {
     config.render(true);
   }
 
-  static openConfirmDialog(Action) {
+  static openConfirmDialog(actionType) {
     let content = "";
     content += `<div class="bottlecap-confirm-content">`;
-    content += `  ${game.i18n.localize(`BC.confirm${Action}.content`)}`;
+    content += `  ${game.i18n.localize(`BC.confirm${actionType}.content`)}`;
     content += `</div>`;
 
     return Dialog.confirm({
@@ -127,7 +161,7 @@ export default class BottleCapList extends Application {
         width: 285,
         classes: ["dialog", "bottlecap-confirm"],
       },
-      title: game.i18n.localize(`BC.confirm${Action}.title`),
+      title: game.i18n.localize(`BC.confirm${actionType}.title`),
       content,
     });
   }

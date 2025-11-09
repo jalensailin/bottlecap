@@ -82,4 +82,13 @@ export default class BCUtils {
 
     return element;
   }
+
+  /**
+   * Returns a string with the first letter capitalized.
+   * @param {string} string - The string to capitalize
+   * @returns {string} The capitalized string
+   */
+  static capFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 }

@@ -1,11 +1,19 @@
 <form class="bottlecap-form">
     {{!-- Sheet Tab Navigation --}}
   <nav class="bottlecap-tabs tabs" data-group="primary">
-    <a data-tab="trove"><div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.current"}} <i class="fas fa-hand-spock"></i></div></a>
-    <a data-tab="graveyard"><div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.graveyard"}} <i class="fa-solid fa-champagne-glasses"></i><i class="fas fa-ghost"></i></div></a>
+    <a class="{{tabs.trove.cssClass}}" data-action="tab" data-tab="trove" data-group="primary" >
+      <div class="bottlecap-tab-text">{{localize "BC.bottleCapList.tabs.current"}}
+        <i class="fas fa-hand-spock"></i>
+      </div>
+    </a>
+    <a class="{{tabs.graveyard.cssClass}}" data-action="tab" data-tab="graveyard" data-group="primary" >
+      <div class="bottlecap-tab-text">
+        {{localize "BC.bottleCapList.tabs.graveyard"}} <i class="fa-solid fa-champagne-glasses"></i><i class="fas fa-ghost"></i>
+      </div>
+    </a>
   </nav>
-  <section class="bottlecap-list-container">
-    <ol class="tab bottlecap-list" data-tab="trove">
+  <div class="bottlecap-list-container">
+    <ol class="bottlecap-list tab {{tabs.trove.cssClass}}" data-tab="trove" data-group="primary">
       <li class="bottlecap-list-header flexrow">
         <div class="bottlecap-total" data-tooltip="{{toolTipCurrent}}" data-tooltip-direction="UP">
           x{{bottleCapList.trove.length}}
@@ -15,11 +23,11 @@
           <select class="bottlecap-select-player">
             {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
           </select>
-          <a class="bottlecap-reset-user" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
+          <a data-action="resetUser" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
         </div>
         <div class="bottlecap-action-list bottlecap-create">
           {{#if userCanManageCurrent}}
-            <a class="bottlecap-action" data-action="create" data-tooltip="BC.config.tooltip.create"><i class="fas fa-plus"></i></a>
+            <a data-action="bottlecapAction" data-action-type="create" data-tooltip="BC.config.tooltip.create"><i class="fas fa-plus"></i></a>
           {{/if}}
         </div>
       </li>
@@ -36,11 +44,11 @@
           </div>
           <div class="bottlecap-action-list">
             {{#if (bcCompare ../userIsCurrent "||" ../userCanManageCurrent)}}
-              <a class="bottlecap-action" data-action="spend" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.spend"><i class="fas fa-dice-d20"></i></a>&nbsp;
-              <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
+              <a data-action="bottlecapAction" data-action-type="spend" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.spend"><i class="fas fa-dice-d20"></i></a>&nbsp;
+              <a data-action="bottlecapAction" data-action-type="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
             {{/if}}
             {{#if ../userCanManageCurrent}}
-              <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
+              <a data-action="bottlecapAction" data-action-type="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
             {{/if}}
           </div>
         </li>
@@ -50,7 +58,7 @@
         </li>
       {{/each}}
     </ol>
-    <ol class="tab bottlecap-list" data-tab="graveyard">
+    <ol class="bottlecap-list tab {{tabs.graveyard.cssClass}}" data-tab="graveyard" data-group="primary">
       <li class="bottlecap-list-header flexrow">
         <div class="bottlecap-total" data-tooltip="{{toolTipSpent}}" data-tooltip-direction="UP">
           x{{bottleCapList.graveyard.length}}
@@ -60,7 +68,7 @@
           <select class="bottlecap-select-player">
             {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
           </select>
-          <a class="bottlecap-reset-user" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
+          <a data-action="resetUser" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
         </div>
         <div class="bottlecap-action-list"></div>
       </li>
@@ -77,13 +85,13 @@
           </div>
           <div class="bottlecap-action-list">
             {{#if ../userCanManageCurrent}}
-              <a class="bottlecap-action" data-action="revivify" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.revivify"><i class="fas fa-rotate-left"></i></a>&nbsp;
+              <a data-action="bottlecapAction" data-action-type="revivify" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.revivify"><i class="fas fa-rotate-left"></i></a>&nbsp;
             {{/if}}
             {{#if (bcCompare ../userIsCurrent "||" ../userCanManageCurrent)}}
-              <a class="bottlecap-action" data-action="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
+              <a data-action="bottlecapAction" data-action-type="edit" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.edit"><i class="fas fa-edit"></i></a>&nbsp;
             {{/if}}
             {{#if ../userCanManageCurrent}}
-              <a class="bottlecap-action" data-action="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
+              <a data-action="bottlecapAction" data-action-type="delete" data-cap-id="{{cap.id}}" data-tooltip="BC.config.tooltip.delete"><i class="fas fa-trash"></i></a>
             {{/if}}
           </div>
         </li>
@@ -93,5 +101,5 @@
         </li>
       {{/each}}
     </ol>
-  </section>
+  </div>
 </form>
