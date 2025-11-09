@@ -4,7 +4,9 @@
   "description": "Inspired by the Glass Cannon Network. Keep track of special tokens that you give to your players!",
   "main": "bottlecap.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass:build": "sass --no-source-map --update styles/index.scss bottlecap.css",
+    "sass:watch": "sass --no-source-map --watch styles/index.scss bottlecap.css",
+    "dev": "npm run sass:watch"
   },
   "repository": {
     "type": "git",
@@ -19,9 +21,9 @@
   "dependencies": {
     "eslint": "^8.50.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-config-prettier": "^9.0.0"
-  },
-  "devDependencies": {}
+    "sass": "^1.93.3"
+  }
 }
