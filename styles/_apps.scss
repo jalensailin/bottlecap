@@ -38,17 +38,24 @@
 
   /* Tab styling */
   nav.tabs {
-    background-color: var(--bottlecap-verydarkgreen);
-    padding: 0.3rem 0.3rem 0 0.3rem;
     text-align: center;
+
+    background-color: var(--bottlecap-verydarkgreen);
+
+    border: none;
+    padding: 0.3rem 0.3rem 0 0.3rem;
     overflow: hidden;
 
     > a {
       position: relative;
+
+      color: var(--bottlecap-text-white);
+
       border-color: var(--bottlecap-green);
       border-style: solid solid none solid;
       border-width: 2px 2px 0 2px;
       border-radius: 5px 5px 0 0;
+
       transition: 250ms ease-in-out;
       transition-property: all;
 
@@ -87,33 +94,43 @@
     border-bottom-right-radius: 0.25rem;
     margin: 0;
 
+    li {
+      margin: 0;
+    }
+
     .list-header {
       align-items: center;
+      justify-content: space-between;
       background-color: var(--bottlecap-darkblue);
       padding: 0.3rem;
 
       .total {
-        flex: 0 0 36px;
-
         font-size: var(--font-size-16);
         text-align: center;
       }
 
       .select-player-container {
-        flex: 3;
+        flex: 5;
         padding: 0 0 0 0.3rem;
         text-align: center;
       }
 
       select {
+        height: auto;
+
         color: inherit;
         background-color: var(--bottlecap-blue);
-        height: auto;
+        border: 1px solid var(--color-dark-6);
 
         option {
           color: inherit;
           background-color: var(--bottlecap-lightblue);
         }
+      }
+
+      [data-action="resetUser"] {
+        flex: 0 0 24px;
+        padding: 4px;
       }
     }
 

@@ -20,10 +20,14 @@
         </div>
         <div class="select-player-container">
           {{localize "BC.bottleCapList.player"}}:
-          <select class="select-player">
-            {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
-          </select>
-          <a data-action="resetUser" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
+          <div class="flexrow">
+            <select class="select-player">
+              {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
+            </select>
+            <a data-action="resetUser" data-tooltip="BC.config.tooltip.resetUser">
+              <i class="fas fa-rotate-left"></i>
+            </a>
+          </div>
         </div>
         <div class="action-list create">
           {{#if userCanManageCurrent}}
@@ -65,10 +69,14 @@
         </div>
         <div class="select-player-container">
           {{localize "BC.bottleCapList.player"}}:
-          <select class="select-player">
-            {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
-          </select>
-          <a data-action="resetUser" data-tooltip="BC.config.tooltip.resetUser"><i class="fas fa-rotate-left"></i></a>
+          <div class="flexrow">
+            <select class="select-player">
+              {{selectOptions userData selected=currentUserId valueAttr="id" labelAttr="name"}}
+            </select>
+            <a data-action="resetUser" data-tooltip="BC.config.tooltip.resetUser">
+              <i class="fas fa-rotate-left"></i>
+            </a>
+          </div>
         </div>
         <div class="action-list"></div>
       </li>
