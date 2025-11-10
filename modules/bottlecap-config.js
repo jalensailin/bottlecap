@@ -94,9 +94,8 @@ export default class BottleCapConfig extends HandlebarsApplicationMixin(
       await BottleCap.updateBottleCap(newData.user, newData);
     }
 
-    const bottleCapApp = Object.values(ui.windows).find(
-      (w) => w.id === "bottlecap-list-app",
-    );
+    const bottleCapApp =
+      foundry.applications.instances.get("bottlecap-list-app");
     return bottleCapApp ? bottleCapApp.render(true) : this.close();
   }
 }
