@@ -18,24 +18,26 @@
   --bottlecap-verydarkgreen: rgb(12, 43, 12);
 }
 
-/* Foundry overrides borrowed from SmallTime module */
-.bottlecap .window-content,
-/* Overrides some Foundry dialog styles when we call it */
-.dialog.bottlecap-dialog .window-content {
-  padding: 0;
-  background: none;
-  margin: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-shadow: none;
-  border: none;
-  background-attachment: unset;
-  color: var(--bottlecap-text-white);
-}
-
 .bottlecap {
+  /* Foundry overrides borrowed from SmallTime module */
+  .window-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    color: var(--bottlecap-text-white);
+
+    background: none;
+    background-attachment: unset;
+
+    padding: 0;
+    border: none;
+    margin: 0;
+
+    box-shadow: none;
+  }
+
   /* Tab styling */
-  .tabs {
+  nav.tabs {
     background-color: var(--bottlecap-verydarkgreen);
     padding: 0.3rem 0.3rem 0 0.3rem;
     text-align: center;
@@ -79,7 +81,7 @@
   }
 
   /* List styling */
-  .bottlecap-list {
+  ol.bottlecap-list {
     padding: 0;
     border-bottom-left-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
@@ -190,15 +192,15 @@
   }
 }
 
-.bottlecap-confirm {
+.bottlecap-dialog {
   .bottlecap-confirm-content {
     text-align: center;
     background-color: var(--bottlecap-blue);
     padding: 0.3rem;
   }
-}
 
-.bottlecap-dialog button {
-  background-color: var(--bottlecap-darkblue) !important;
-  color: var(--bottlecap-text-white) !important;
+  button {
+    background-color: var(--bottlecap-darkblue) !important;
+    color: var(--bottlecap-text-white) !important;
+  }
 }

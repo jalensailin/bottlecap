@@ -160,7 +160,7 @@ export default class BottleCapList extends HandlebarsApplicationMixin(
       options: {
         height: "auto",
         width: 285,
-        classes: ["dialog", "bottlecap-dialog"],
+        classes: ["dialog", BottleCap.ID, "bottlecap-dialog"],
       },
       title: game.i18n.localize(`BC.confirm${actionType}.title`),
       content,
