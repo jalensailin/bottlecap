@@ -1,5 +1,9 @@
 # Bottle Cap! CHANGELOG
 
+## v3.0.0 - 11-10-2025
+
+- Now compatible with Foundry v13. No longer compatible with Foundry v12, though releases which _do_ support these versions are still available if you have not yet upgraded.
+
 ## v2.0.0 - 06-16-2024
 
 - Now compatible with Foundry v12. No longer compatible with Foundry v10/v11, though releases which _do_ support these versions are still available if you have not yet upgraded.
