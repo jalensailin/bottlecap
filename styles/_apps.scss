@@ -19,6 +19,12 @@
 }
 
 .bottlecap {
+  background: var(--color-cool-5-90) !important;
+
+  .window-header {
+    background: var(--color-cool-5-90) !important;
+  }
+
   /* Foundry overrides borrowed from SmallTime module */
   .window-content {
     overflow-y: auto;
@@ -34,6 +40,8 @@
     margin: 0;
 
     box-shadow: none;
+
+    backdrop-filter: blur(4px);
   }
 
   /* Tab styling */
@@ -82,7 +90,8 @@
 
       > .tab-text {
         display: block;
-        padding: 0.3rem;
+        line-height: 2;
+        padding: 0 0.3rem;
       }
     }
   }
@@ -158,6 +167,7 @@
         .filepicker {
           color: inherit;
           flex: 3;
+          background-color: rgba(0, 0, 0, 0.3);
         }
 
         > input::placeholder {
@@ -206,6 +216,19 @@
     &[data-tab="graveyard"] .name {
       text-decoration: line-through;
     }
+  }
+
+  footer.form-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4px;
+  }
+
+  .window-resize-handle {
+    filter: invert(1) !important;
   }
 }
 
