@@ -26,7 +26,7 @@
   "flags": {
     "hotReload": {
       "extensions": ["css", "hbs", "json"],
-      "paths": ["styles", "templates", "languages"]
+      "paths": ["bottlecap.css", "templates", "languages"]
     }
   },
   "url": "https://github.com/jalensailin/bottlecap",

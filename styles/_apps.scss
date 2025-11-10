@@ -19,11 +19,9 @@
 }
 
 /* Foundry overrides borrowed from SmallTime module */
-#bottlecap-list-app .window-content,
-/* Matches id for beginning of id string */
-[id^="bottlecap-config-form-app-"] .window-content,
+.bottlecap .window-content,
 /* Overrides some Foundry dialog styles when we call it */
-.dialog.bottlecap-confirm .window-content {
+.dialog.bottlecap-dialog .window-content {
   padding: 0;
   background: none;
   margin: 0;
@@ -35,182 +33,173 @@
   color: var(--bottlecap-text-white);
 }
 
-.bottlecap-form ol,
-.bottlecap-config > ol {
-  margin: 0;
-}
-
 /* Tab styling */
-.bottlecap-tabs {
+.tabs {
   background-color: var(--bottlecap-verydarkgreen);
   padding: 0.3rem 0.3rem 0 0.3rem;
   text-align: center;
   overflow: hidden;
-}
 
-.bottlecap-tabs > a {
-  position: relative;
-  border-color: var(--bottlecap-green);
-  border-style: solid solid none solid;
-  border-width: 2px 2px 0 2px;
-  border-radius: 5px 5px 0 0;
-  transition: 250ms ease-in-out;
-  transition-property: all;
-}
+  > a {
+    position: relative;
+    border-color: var(--bottlecap-green);
+    border-style: solid solid none solid;
+    border-width: 2px 2px 0 2px;
+    border-radius: 5px 5px 0 0;
+    transition: 250ms ease-in-out;
+    transition-property: all;
 
-.bottlecap-tabs > a:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.6;
-  border-radius: inherit;
-  box-shadow: 0 0 1em 0.5em var(--bottlecap-green);
-  transition: 250ms ease-in-out;
-  transition-property: opacity;
-}
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.6;
+      border-radius: inherit;
+      box-shadow: 0 0 1em 0.5em var(--bottlecap-green);
+      transition: 250ms ease-in-out;
+      transition-property: opacity;
+    }
 
-.bottlecap-tabs > a:hover,
-.bottlecap-tabs > a:focus {
-  text-shadow: 0 0 6px var(--bottlecap-lightgreen);
-}
+    &:hover,
+    &:focus {
+      text-shadow: 0 0 6px var(--bottlecap-lightgreen);
+    }
 
-.bottlecap-tabs > a.active {
-  background-color: var(--bottlecap-darkgreen);
-  text-shadow: 0 0 6px var(--bottlecap-lightgreen) !important;
-}
+    &.active {
+      background-color: var(--bottlecap-darkgreen);
+      text-shadow: 0 0 6px var(--bottlecap-lightgreen) !important;
+    }
 
-.bottlecap-tabs > a > .bottlecap-tab-text {
-  display: block;
-  padding: 0.3rem;
+    > .bottlecap-tab-text {
+      display: block;
+      padding: 0.3rem;
+    }
+  }
 }
 
 /* List styling */
-.bottlecap-list,
-.bottlecap-settings-list {
+.bottlecap-list {
   padding: 0;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
+
+  ol {
+    margin: 0;
+  }
+
+  .bottlecap-list-header {
+    align-items: center;
+    background-color: var(--bottlecap-darkblue);
+    padding: 0.3rem;
+
+    .bottlecap-total {
+      flex: 0 0 36px;
+
+      font-size: var(--font-size-16);
+      text-align: center;
+    }
+
+    .bottlecap-select-player-container {
+      flex: 3;
+      padding: 0 0 0 0.3rem;
+      text-align: center;
+    }
+
+    select {
+      color: inherit;
+      background-color: var(--bottlecap-blue);
+      height: auto;
+
+      option {
+        color: inherit;
+        background-color: var(--bottlecap-lightblue);
+      }
+    }
+  }
+
+  .bottlecap-list-item {
+    align-items: center;
+    background-color: var(--bottlecap-blue);
+    padding: 0.3rem;
+
+    &:nth-child(even) {
+      background-color: var(--bottlecap-lightblue);
+    }
+
+    &:last-child {
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+
+    .bottlecap-thumb {
+      flex: 0 0 36px;
+    }
+
+    &.setting {
+      input,
+      select,
+      .bottlecap-filepicker {
+        color: inherit;
+        flex: 3;
+      }
+
+      > input::placeholder {
+        color: var(--bottlecap-placeholder-gray);
+      }
+
+      > select option {
+        color: inherit;
+        background-color: var(--bottlecap-lightblue);
+      }
+
+      .settings-label {
+        padding: 0 0.3rem 0 0;
+      }
+
+      .bottlecap-static-user {
+        text-align: right;
+        padding: 0 0.3rem 0 0;
+      }
+    }
+
+    .bottlecap-name {
+      flex: 3;
+      padding: 0 0 0 0.3rem;
+
+      .bottlecap-name-context {
+        font-size: var(--font-size-12);
+        color: var(--bottlecap-context-gray);
+      }
+    }
+
+    > img {
+      height: 36px;
+      width: 36px;
+    }
+  }
+
+  .bottlecap-action-list {
+    text-align: center;
+
+    [data-action-type="delete"] > i {
+      color: var(--bottlecap-red);
+    }
+  }
+
+  &[data-tab="graveyard"] .bottlecap-name {
+    text-decoration: line-through;
+  }
 }
 
-.bottlecap-config button,
-.bottlecap-confirm button {
+.bottlecap-confirm {
+  .bottlecap-confirm-content {
+    text-align: center;
+    background-color: var(--bottlecap-blue);
+    padding: 0.3rem;
+  }
+}
+
+.bottlecap-dialog button {
   background-color: var(--bottlecap-darkblue) !important;
   color: var(--bottlecap-text-white) !important;
-}
-
-.bottlecap-confirm-content {
-  text-align: center;
-  background-color: var(--bottlecap-blue);
-  padding: 0.3rem;
-}
-
-.bottlecap-list-header {
-  align-items: center;
-  background-color: var(--bottlecap-darkblue);
-  padding: 0.3rem;
-}
-
-.bottlecap-list-header select {
-  color: inherit;
-  background-color: var(--bottlecap-blue);
-  height: auto;
-}
-
-.bottlecap-list-header select option {
-  color: inherit;
-  background-color: var(--bottlecap-lightblue);
-}
-
-.bottlecap-list-item,
-.bottlecap-settings-item {
-  align-items: center;
-  background-color: var(--bottlecap-blue);
-  padding: 0.3rem;
-}
-
-.bottlecap-list-item:nth-child(even),
-.bottlecap-settings-item:nth-child(even) {
-  background-color: var(--bottlecap-lightblue);
-}
-
-.bottlecap-list-item:last-child,
-.bottlecap-settings-item:last-child {
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
-}
-
-.bottlecap-settings-item input,
-.bottlecap-settings-item select,
-.bottlecap-settings-item .bottlecap-filepicker {
-  color: inherit;
-  flex: 3;
-}
-
-.bottlecap-settings-item > select option {
-  color: inherit;
-  background-color: var(--bottlecap-lightblue);
-}
-
-.bottlecap-static-user {
-  text-align: right;
-  padding: 0 0.3rem 0 0;
-}
-
-.bottlecap-settings-item > input::placeholder {
-  color: var(--bottlecap-placeholder-gray);
-}
-
-.bottlecap-settings-label {
-  padding: 0 0.3rem 0 0;
-}
-
-.bottlecap-list-item > img {
-  height: 36px;
-  width: 36px;
-}
-
-.bottlecap-total,
-.bottlecap-thumb {
-  flex: 0 0 36px;
-}
-
-.bottlecap-total {
-  font-size: var(--font-size-16);
-  text-align: center;
-}
-
-.bottlecap-name,
-.bottlecap-name-label {
-  flex: 3;
-  padding: 0 0 0 0.3rem;
-}
-
-.bottlecap-select-player-container {
-  flex: 3;
-  padding: 0 0 0 0.3rem;
-  text-align: center;
-}
-
-.bottlecap-name-context {
-  font-size: var(--font-size-12);
-  color: var(--bottlecap-context-gray);
-}
-
-[data-tab="graveyard"] .bottlecap-name-text,
-[data-tab="graveyard"] .bottlecap-name-context {
-  text-decoration: line-through;
-}
-
-.bottlecap-action-list {
-  text-align: center;
-}
-
-.bottlecap-delete-label,
-.bottlecap-action[data-action="delete"] {
-  flex: 1;
-  text-align: center;
-}
-
-.bottlecap-action[data-action="delete"] > i {
-  color: var(--bottlecap-red);
 }

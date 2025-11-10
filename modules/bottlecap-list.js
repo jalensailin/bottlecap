@@ -16,6 +16,7 @@ export default class BottleCapList extends HandlebarsApplicationMixin(
   /** @inheritdoc */
   static DEFAULT_OPTIONS = /** @type {const} */ ({
     id: "bottlecap-list-app",
+    classes: [BottleCap.ID, "bottlecap-list"],
     position: { height: "auto", width: 285 },
     window: {
       title: "BC.bottleCapList.title",
@@ -159,7 +160,7 @@ export default class BottleCapList extends HandlebarsApplicationMixin(
       options: {
         height: "auto",
         width: 285,
-        classes: ["dialog", "bottlecap-confirm"],
+        classes: ["dialog", "bottlecap-dialog"],
       },
       title: game.i18n.localize(`BC.confirm${actionType}.title`),
       content,
