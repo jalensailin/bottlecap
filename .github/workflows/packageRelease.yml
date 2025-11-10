@@ -23,6 +23,14 @@ jobs:
       - name: Get Version
         id: get_version
         uses: dhkatz/get-version-action@v3.0.0
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+      - name: Install Dependencies
+        run: npm install
+      - name: Build Sass
+        run: npm run sass:build
       # 3. Substitute the Manifest and Download URLs in the module.json
       - name: Substitute Manifest, Download Links, and Version Number
         uses: TomaszKandula/variable-substitution@v1.0.1
@@ -33,10 +41,11 @@ jobs:
           changelog: https://raw.githubusercontent.com/${{github.repository}}/${{github.event.release.tag_name}}/CHANGELOG.md
           manifest: https://github.com/${{github.repository}}/releases/latest/download/module.json
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/bottlecap.zip
+          flags.hotReload: false
       # 4. Zip up the branch excluding unnecessary files/folders packs.
       - name: Zip
         # Exclude the npm files from the final package, as well as any files/folders beginning with a dot.
-        run: zip -r bottlecap.zip . --exclude=".*" --exclude="package-lock.json" --exclude="package.json"
+        run: zip -r bottlecap.zip . --exclude=".*" --exclude="package-lock.json" --exclude="package.json" --exclude="node_modules/*" --exclude="styles/*"
       # 5. Updates the release with the newly zipped branch and module.json. See documentation of this action for details.
       - name: Update Release with Artifacts
         uses: ncipollo/release-action@v1.13.0
@@ -47,3 +56,4 @@ jobs:
           body: ${{ github.event.release.body }}
           artifacts: "./bottlecap.zip, ./module.json"
           token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: ${{ github.event.release.prerelease }}
