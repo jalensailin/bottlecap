@@ -1,9 +1,9 @@
-/* global Dialog */
 import BottleCap from "./bottlecap.js";
 import BottleCapConfig from "./bottlecap-config.js";
 import BCUtils from "./utils.js";
 
-const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+const { ApplicationV2, Dialog, HandlebarsApplicationMixin } =
+  foundry.applications.api;
 
 export default class BottleCapList extends HandlebarsApplicationMixin(
   ApplicationV2,
@@ -157,12 +157,12 @@ export default class BottleCapList extends HandlebarsApplicationMixin(
     content += `</div>`;
 
     return Dialog.confirm({
-      options: {
+      classes: ["dialog", BottleCap.ID, "bottlecap-dialog"],
+      position: {
         height: "auto",
         width: 285,
-        classes: ["dialog", BottleCap.ID, "bottlecap-dialog"],
       },
-      title: game.i18n.localize(`BC.confirm${actionType}.title`),
+      window: { title: `BC.confirm${actionType}.title` },
       content,
     });
   }
