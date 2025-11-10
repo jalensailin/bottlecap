@@ -22,7 +22,7 @@ export default class BottleCapConfig extends HandlebarsApplicationMixin(
   /** @inheritdoc */
   static DEFAULT_OPTIONS = /** @type {const} */ ({
     id: "bottlecap-config-form-app",
-    classes: [BottleCap.ID, "bottlecap-config"],
+    classes: [BottleCap.ID, "bottlecap-dialog"],
     form: {
       handler: BottleCapConfig.onSubmit,
       closeOnSubmit: true,

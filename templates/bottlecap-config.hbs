@@ -1,28 +1,28 @@
 <div class="bottlecap-dialog">
   <ol class="bottlecap-list">
     {{#if isGM}}
-      <li class="flexrow bottlecap-list-item setting">
+      <li class="flexrow list-item setting">
         <div class="settings-label">{{localize "BC.config.user"}}: </div>
         {{#if isCreationDialog}}
-          <select class="bottlecap-select-user" name="user">
+          <select class="select-user" name="user">
             {{selectOptions userData selected=currentUser.id valueAttr="id" labelAttr="name"}}
           </select>
         {{else}}
-          <div class="bottlecap-static-user">{{currentUser.name}}</div>
+          <div class="static-user">{{currentUser.name}}</div>
         {{/if}}
       </li>
     {{/if}}
-    <li class="flexrow bottlecap-list-item setting">
+    <li class="flexrow list-item setting">
       <div class="settings-label">{{localize "BC.config.name"}}: </div>
       <input type="text" name="name" data-dtype="String" value="{{name}}">
     </li>
-    <li class="flexrow bottlecap-list-item setting">
+    <li class="flexrow list-item setting">
       <div class="settings-label">{{localize "BC.config.icon"}}: </div>
-      <div class="flexrow bottlecap-filepicker">
+      <div class="flexrow filepicker">
         <file-picker type="image" name="img" value="{{img}}"></file-picker>
       </div>
     </li>
-    <li class="flexrow bottlecap-list-item setting">
+    <li class="flexrow list-item setting">
       <div class="settings-label">{{localize "BC.config.context"}}: </div>
       <input type="text" name="context" placeholder="{{localize "BC.config.contextPlaceholder"}}" value="{{context}}">
     </li>

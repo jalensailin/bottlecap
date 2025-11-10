@@ -94,7 +94,7 @@ export default class BottleCapList extends HandlebarsApplicationMixin(
   async _onRender(context, options) {
     await super._onRender(context, options);
 
-    const select = this.element.querySelector(".bottlecap-select-player");
+    const select = this.element.querySelector(".select-player");
     select.addEventListener("change", (event) => {
       this.currentUserId = event.currentTarget.value;
       this.render(true);

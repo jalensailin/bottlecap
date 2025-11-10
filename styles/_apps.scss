@@ -33,161 +33,160 @@
   color: var(--bottlecap-text-white);
 }
 
-/* Tab styling */
-.tabs {
-  background-color: var(--bottlecap-verydarkgreen);
-  padding: 0.3rem 0.3rem 0 0.3rem;
-  text-align: center;
-  overflow: hidden;
-
-  > a {
-    position: relative;
-    border-color: var(--bottlecap-green);
-    border-style: solid solid none solid;
-    border-width: 2px 2px 0 2px;
-    border-radius: 5px 5px 0 0;
-    transition: 250ms ease-in-out;
-    transition-property: all;
-
-    &:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.6;
-      border-radius: inherit;
-      box-shadow: 0 0 1em 0.5em var(--bottlecap-green);
-      transition: 250ms ease-in-out;
-      transition-property: opacity;
-    }
-
-    &:hover,
-    &:focus {
-      text-shadow: 0 0 6px var(--bottlecap-lightgreen);
-    }
-
-    &.active {
-      background-color: var(--bottlecap-darkgreen);
-      text-shadow: 0 0 6px var(--bottlecap-lightgreen) !important;
-    }
-
-    > .bottlecap-tab-text {
-      display: block;
-      padding: 0.3rem;
-    }
-  }
-}
-
-/* List styling */
-.bottlecap-list {
-  padding: 0;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-
-  ol {
-    margin: 0;
-  }
-
-  .bottlecap-list-header {
-    align-items: center;
-    background-color: var(--bottlecap-darkblue);
-    padding: 0.3rem;
-
-    .bottlecap-total {
-      flex: 0 0 36px;
-
-      font-size: var(--font-size-16);
-      text-align: center;
-    }
-
-    .bottlecap-select-player-container {
-      flex: 3;
-      padding: 0 0 0 0.3rem;
-      text-align: center;
-    }
-
-    select {
-      color: inherit;
-      background-color: var(--bottlecap-blue);
-      height: auto;
-
-      option {
-        color: inherit;
-        background-color: var(--bottlecap-lightblue);
-      }
-    }
-  }
-
-  .bottlecap-list-item {
-    align-items: center;
-    background-color: var(--bottlecap-blue);
-    padding: 0.3rem;
-
-    &:nth-child(even) {
-      background-color: var(--bottlecap-lightblue);
-    }
-
-    &:last-child {
-      border-bottom-left-radius: inherit;
-      border-bottom-right-radius: inherit;
-    }
-
-    .bottlecap-thumb {
-      flex: 0 0 36px;
-    }
-
-    &.setting {
-      input,
-      select,
-      .bottlecap-filepicker {
-        color: inherit;
-        flex: 3;
-      }
-
-      > input::placeholder {
-        color: var(--bottlecap-placeholder-gray);
-      }
-
-      > select option {
-        color: inherit;
-        background-color: var(--bottlecap-lightblue);
-      }
-
-      .settings-label {
-        padding: 0 0.3rem 0 0;
-      }
-
-      .bottlecap-static-user {
-        text-align: right;
-        padding: 0 0.3rem 0 0;
-      }
-    }
-
-    .bottlecap-name {
-      flex: 3;
-      padding: 0 0 0 0.3rem;
-
-      .bottlecap-name-context {
-        font-size: var(--font-size-12);
-        color: var(--bottlecap-context-gray);
-      }
-    }
-
-    > img {
-      height: 36px;
-      width: 36px;
-    }
-  }
-
-  .bottlecap-action-list {
+.bottlecap {
+  /* Tab styling */
+  .tabs {
+    background-color: var(--bottlecap-verydarkgreen);
+    padding: 0.3rem 0.3rem 0 0.3rem;
     text-align: center;
+    overflow: hidden;
 
-    [data-action-type="delete"] > i {
-      color: var(--bottlecap-red);
+    > a {
+      position: relative;
+      border-color: var(--bottlecap-green);
+      border-style: solid solid none solid;
+      border-width: 2px 2px 0 2px;
+      border-radius: 5px 5px 0 0;
+      transition: 250ms ease-in-out;
+      transition-property: all;
+
+      &:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.6;
+        border-radius: inherit;
+        box-shadow: 0 0 1em 0.5em var(--bottlecap-green);
+        transition: 250ms ease-in-out;
+        transition-property: opacity;
+      }
+
+      &:hover,
+      &:focus {
+        text-shadow: 0 0 6px var(--bottlecap-lightgreen);
+      }
+
+      &.active {
+        background-color: var(--bottlecap-darkgreen);
+        text-shadow: 0 0 6px var(--bottlecap-lightgreen) !important;
+      }
+
+      > .tab-text {
+        display: block;
+        padding: 0.3rem;
+      }
     }
   }
 
-  &[data-tab="graveyard"] .bottlecap-name {
-    text-decoration: line-through;
+  /* List styling */
+  .bottlecap-list {
+    padding: 0;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    margin: 0;
+
+    .list-header {
+      align-items: center;
+      background-color: var(--bottlecap-darkblue);
+      padding: 0.3rem;
+
+      .total {
+        flex: 0 0 36px;
+
+        font-size: var(--font-size-16);
+        text-align: center;
+      }
+
+      .select-player-container {
+        flex: 3;
+        padding: 0 0 0 0.3rem;
+        text-align: center;
+      }
+
+      select {
+        color: inherit;
+        background-color: var(--bottlecap-blue);
+        height: auto;
+
+        option {
+          color: inherit;
+          background-color: var(--bottlecap-lightblue);
+        }
+      }
+    }
+
+    .list-item {
+      align-items: center;
+      background-color: var(--bottlecap-blue);
+      padding: 0.3rem;
+
+      &:nth-child(even) {
+        background-color: var(--bottlecap-lightblue);
+      }
+
+      &:last-child {
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+      }
+
+      .thumb {
+        flex: 0 0 36px;
+      }
+
+      &.setting {
+        input,
+        select,
+        .filepicker {
+          color: inherit;
+          flex: 3;
+        }
+
+        > input::placeholder {
+          color: var(--bottlecap-placeholder-gray);
+        }
+
+        > select option {
+          color: inherit;
+          background-color: var(--bottlecap-lightblue);
+        }
+
+        .settings-label {
+          padding: 0 0.3rem 0 0;
+        }
+
+        .static-user {
+          text-align: right;
+          padding: 0 0.3rem 0 0;
+        }
+      }
+
+      .name {
+        flex: 3;
+        padding: 0 0 0 0.3rem;
+
+        .name-context {
+          font-size: var(--font-size-12);
+          color: var(--bottlecap-context-gray);
+        }
+      }
+
+      > img {
+        height: 36px;
+        width: 36px;
+      }
+    }
+
+    .action-list {
+      text-align: center;
+
+      [data-action-type="delete"] > i {
+        color: var(--bottlecap-red);
+      }
+    }
+
+    &[data-tab="graveyard"] .name {
+      text-decoration: line-through;
+    }
   }
 }
 
