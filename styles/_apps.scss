@@ -23,6 +23,11 @@
 
   .window-header {
     background: var(--color-cool-5-90) !important;
+
+    button {
+      border: unset;
+      background-color: unset;
+    }
   }
 
   /* Foundry overrides borrowed from SmallTime module */
@@ -99,8 +104,6 @@
   /* List styling */
   ol.bottlecap-list {
     padding: 0;
-    border-bottom-left-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
     margin: 0;
 
     li {
@@ -170,8 +173,12 @@
           background-color: rgba(0, 0, 0, 0.3);
         }
 
-        > input::placeholder {
-          color: var(--bottlecap-placeholder-gray);
+        input {
+          border: none;
+
+          &::placeholder {
+            color: var(--bottlecap-placeholder-gray);
+          }
         }
 
         > select option {
@@ -240,7 +247,8 @@
   }
 
   button {
-    background-color: var(--bottlecap-darkblue) !important;
-    color: var(--bottlecap-text-white) !important;
+    color: var(--bottlecap-text-white);
+    background-color: var(--bottlecap-darkblue);
+    border: 1px solid var(--color-light-5);
   }
 }

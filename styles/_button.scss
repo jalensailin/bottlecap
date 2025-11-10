@@ -10,24 +10,24 @@
   background: transparent;
   border: 0;
   padding: 0;
-}
 
-.bottlecap-button .bottlecap-number {
-  position: absolute;
-  top: 0.3rem;
-  left: 0.5rem;
-}
+  .bottlecap-number {
+    position: absolute;
+    top: 0.3rem;
+    left: 0.5rem;
+  }
 
-.bottlecap-button > img {
-  height: 24px;
-  width: 24px;
-  border: 0;
-  max-width: none;
-  display: block;
-}
+  > img {
+    height: 24px;
+    width: 24px;
+    border: 0;
+    max-width: none;
+    display: block;
+  }
 
-.bottlecap-button:hover,
-.bottlecap-button:focus {
-  box-shadow: none;
-  text-shadow: 0 0 5px red;
+  &:hover,
+  &:focus {
+    box-shadow: none;
+    text-shadow: 0 0 5px red;
+  }
 }
